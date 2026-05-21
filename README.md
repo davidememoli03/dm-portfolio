@@ -3,6 +3,7 @@
 Monorepo per un portfolio personale con:
 
 - **Angular 21** (`projects/portfolio-app`) — applicazione frontend
+- **[@davide03memoli/arcade-ui](https://www.npmjs.com/package/@davide03memoli/arcade-ui)** — design system arcade (CSS + directive Angular)
 - **Libreria `dm-portfolio`** (`projects/dm-portfolio`) — componenti riutilizzabili
 - **Tailwind CSS 4** — styling
 - **Node.js 24 + Express 5** (`server/`) — API REST minimale
@@ -64,6 +65,22 @@ npm start
 | `GET /api/projects` | Lista progetti         |
 
 I dati sono in `server/data/portfolio.json`.
+
+## Arcade UI
+
+La libreria [`@davide03memoli/arcade-ui`](https://www.npmjs.com/package/@davide03memoli/arcade-ui) e integrata globalmente:
+
+- CSS + tema `phosphor-green` in `projects/portfolio-app/src/styles.css`
+- Directive Angular (`arcadeTheme`, `arcadeSoundClick`, …) via `@davide03memoli/arcade-ui/angular`
+- Re-export da `dm-portfolio` per uso futuro nei componenti della libreria
+
+```typescript
+import { arcadeUiAngularImports, ArcadeAudioService } from 'dm-portfolio';
+// oppure direttamente:
+import { arcadeUiAngularImports } from '@davide03memoli/arcade-ui/angular';
+```
+
+Temi disponibili: `phosphor-green`, `amber-crt`, `magenta-wave`, `ice-blue`.
 
 ## Libreria dm-portfolio
 

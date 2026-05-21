@@ -1,5 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { forkJoin } from 'rxjs';
+import { arcadeUiAngularImports } from '@davide03memoli/arcade-ui/angular';
 
 import {
   ContactSectionComponent,
@@ -13,6 +14,7 @@ import {
 @Component({
   selector: 'app-root',
   imports: [
+    ...arcadeUiAngularImports,
     HeroSectionComponent,
     ProjectsGridComponent,
     ContactSectionComponent,
@@ -23,6 +25,7 @@ import {
 export class AppComponent implements OnInit {
   private readonly portfolioApi = inject(PortfolioApiService);
 
+  readonly theme = 'arc-theme-phosphor';
   readonly profile = signal<PortfolioProfile | null>(null);
   readonly projects = signal<PortfolioProject[]>([]);
   readonly loading = signal(true);

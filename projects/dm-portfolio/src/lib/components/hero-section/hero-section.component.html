@@ -1,20 +1,30 @@
-<section class="relative overflow-hidden px-6 py-24 sm:px-10 lg:px-16">
-  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),_transparent_55%)]"></div>
+<section class="px-6 py-16 sm:px-10 lg:px-16">
+  <div class="arc-panel arc-panel-cyan mx-auto max-w-4xl">
+    <div class="arc-panel-header">
+      <span class="arc-badge arc-badge-cyan arc-badge-pulse">PORTFOLIO</span>
+      @if (profile().location) {
+        <span class="arc-badge arc-badge-outline arc-text-caption">{{ profile().location }}</span>
+      }
+    </div>
 
-  <div class="relative mx-auto max-w-4xl text-center">
-    <p class="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-indigo-300">
-      Portfolio
-    </p>
-    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-      {{ profile().name }}
-    </h1>
-    <p class="mt-4 text-xl text-indigo-200">{{ profile().title }}</p>
-    <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-      {{ profile().bio }}
-    </p>
+    <div class="arc-panel-body text-center">
+      <h1 class="arc-text-neon arc-glow-cyan arc-text-pixel-shadow">
+        {{ profile().name }}
+      </h1>
+      <p class="arc-text-mono arc-glow-green mt-4">{{ profile().title }}</p>
+      <p class="arc-text-body mt-6 max-w-2xl mx-auto">
+        {{ profile().bio }}
+      </p>
+    </div>
 
-    @if (profile().location) {
-      <p class="mt-4 text-sm text-slate-400">{{ profile().location }}</p>
-    }
+    <div class="arc-panel-footer justify-center">
+      <a
+        [href]="'mailto:' + profile().email"
+        class="arc-btn arc-btn-primary"
+        arcadeSoundClick="select"
+      >
+        CONTACT
+      </a>
+    </div>
   </div>
 </section>

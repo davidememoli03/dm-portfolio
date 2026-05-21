@@ -1,24 +1,31 @@
 <section class="px-6 py-16 sm:px-10 lg:px-16">
-  <div class="mx-auto max-w-3xl rounded-3xl border border-slate-700/80 bg-slate-900/70 p-10 text-center shadow-xl">
-    <h2 class="text-3xl font-bold text-white">Contatti</h2>
-    <p class="mt-3 text-slate-400">Hai un progetto in mente? Scrivimi.</p>
+  <div class="arc-panel arc-panel-green mx-auto max-w-3xl text-center">
+    <div class="arc-panel-header justify-center">
+      <h2 class="arc-text-neon arc-glow-green">CONTATTI</h2>
+    </div>
 
-    <a
-      [href]="'mailto:' + profile().email"
-      class="mt-8 inline-flex rounded-xl bg-indigo-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400"
-    >
-      {{ profile().email }}
-    </a>
+    <div class="arc-panel-body">
+      <p class="arc-text-caption">Hai un progetto in mente? Scrivimi.</p>
 
-    <div class="mt-6 flex items-center justify-center gap-4">
+      <a
+        [href]="'mailto:' + profile().email"
+        class="arc-btn arc-btn-primary mt-8"
+        arcadeSoundClick="coin"
+      >
+        {{ profile().email }}
+      </a>
+    </div>
+
+    <div class="arc-panel-footer justify-center gap-4">
       @if (profile().github) {
         <a
           [href]="profile().github"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm text-slate-300 transition hover:text-white"
+          class="arc-btn arc-btn-ghost arc-btn-sm"
+          arcadeSoundClick="select"
         >
-          GitHub
+          GITHUB
         </a>
       }
       @if (profile().linkedin) {
@@ -26,9 +33,10 @@
           [href]="profile().linkedin"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm text-slate-300 transition hover:text-white"
+          class="arc-btn arc-btn-ghost arc-btn-sm"
+          arcadeSoundClick="select"
         >
-          LinkedIn
+          LINKEDIN
         </a>
       }
     </div>

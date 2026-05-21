@@ -1,11 +1,19 @@
-<main class="min-h-screen">
+<main
+  class="portfolio-shell arc-bg-stars arc-crt-screen"
+  [arcadeTheme]="theme"
+  arcadeThemeTarget="document"
+>
   @if (loading()) {
-    <div class="flex min-h-screen items-center justify-center text-slate-300">
-      Caricamento portfolio...
+    <div class="arc-panel arc-panel-cyan mx-auto my-24 max-w-md text-center">
+      <div class="arc-panel-body">
+        <p class="arc-text-mono arc-anim-blink-cursor">CARICAMENTO PORTFOLIO...</p>
+      </div>
     </div>
   } @else if (error()) {
-    <div class="flex min-h-screen items-center justify-center px-6 text-center text-red-300">
-      {{ error() }}
+    <div class="arc-panel arc-panel-red mx-auto my-24 max-w-md text-center">
+      <div class="arc-panel-body">
+        <p class="arc-text-mono">{{ error() }}</p>
+      </div>
     </div>
   } @else if (profile()) {
     <dm-hero-section [profile]="profile()!" />
