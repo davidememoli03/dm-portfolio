@@ -4,7 +4,8 @@
   "peerDependencies": {
     "@angular/common": "^21.2.0",
     "@angular/core": "^21.2.0",
-    "@davide03memoli/arcade-ui": "^5.7.0"
+    "@davide03memoli/arcade-ui": "^5.7.0",
+    "@ngx-translate/core": "^17.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

@@ -2,10 +2,10 @@
   <div class="mx-auto max-w-6xl">
     <div class="arc-panel arc-panel-purple mb-10">
       <div class="arc-panel-header">
-        <h2 class="arc-text-neon arc-glow-purple">PROGETTI</h2>
+        <h2 class="arc-text-neon arc-glow-purple">{{ 'projects.title' | translate }}</h2>
       </div>
       <div class="arc-panel-body">
-        <p class="arc-text-caption">Una selezione dei lavori piu recenti</p>
+        <p class="arc-text-caption">{{ 'projects.subtitle' | translate }}</p>
       </div>
     </div>
 
@@ -35,7 +35,7 @@
                 class="arc-btn arc-btn-primary arc-btn-sm"
                 arcadeSoundClick="select"
               >
-                DEMO
+                {{ 'projects.demo' | translate }}
               </a>
             }
             @if (project.repoUrl) {
@@ -46,7 +46,7 @@
                 class="arc-btn arc-btn-ghost arc-btn-sm"
                 arcadeSoundClick="select"
               >
-                REPO
+                {{ 'projects.repo' | translate }}
               </a>
             }
           </div>

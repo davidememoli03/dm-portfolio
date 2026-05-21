@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "badge": "PORTFOLIO",
+    "contact": "CONTACT"
+  },
+  "projects": {
+    "title": "PROJECTS",
+    "subtitle": "A selection of the most recent work",
+    "demo": "DEMO",
+    "repo": "REPO"
+  },
+  "contact": {
+    "title": "CONTACT",
+    "subtitle": "Have a project in mind? Get in touch.",
+    "github": "GITHUB",
+    "linkedin": "LINKEDIN"
+  },
+  "app": {
+    "loading": "LOADING PORTFOLIO...",
+    "error": {
+      "load": "Unable to load portfolio data."
+    }
+  }
+}

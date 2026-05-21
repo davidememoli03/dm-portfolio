@@ -1,11 +1,11 @@
 <section class="px-6 py-16 sm:px-10 lg:px-16">
   <div class="arc-panel arc-panel-green mx-auto max-w-3xl text-center">
     <div class="arc-panel-header justify-center">
-      <h2 class="arc-text-neon arc-glow-green">CONTATTI</h2>
+      <h2 class="arc-text-neon arc-glow-green">{{ 'contact.title' | translate }}</h2>
     </div>
 
     <div class="arc-panel-body">
-      <p class="arc-text-caption">Hai un progetto in mente? Scrivimi.</p>
+      <p class="arc-text-caption">{{ 'contact.subtitle' | translate }}</p>
 
       <a
         [href]="'mailto:' + profile().email"
@@ -25,7 +25,7 @@
           class="arc-btn arc-btn-ghost arc-btn-sm"
           arcadeSoundClick="select"
         >
-          GITHUB
+          {{ 'contact.github' | translate }}
         </a>
       }
       @if (profile().linkedin) {
@@ -36,7 +36,7 @@
           class="arc-btn arc-btn-ghost arc-btn-sm"
           arcadeSoundClick="select"
         >
-          LINKEDIN
+          {{ 'contact.linkedin' | translate }}
         </a>
       }
     </div>

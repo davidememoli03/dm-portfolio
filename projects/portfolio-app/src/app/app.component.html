@@ -3,10 +3,12 @@
   [arcadeTheme]="theme"
   arcadeThemeTarget="document"
 >
+  <app-locale-switcher class="fixed top-4 right-4 z-50" />
+
   @if (loading()) {
     <div class="arc-panel arc-panel-cyan mx-auto my-24 max-w-md text-center">
       <div class="arc-panel-body">
-        <p class="arc-text-mono arc-anim-blink-cursor">CARICAMENTO PORTFOLIO...</p>
+        <p class="arc-text-mono arc-anim-blink-cursor">{{ 'app.loading' | translate }}</p>
       </div>
     </div>
   } @else if (error()) {

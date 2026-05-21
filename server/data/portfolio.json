@@ -1,33 +1,60 @@
 {
   "profile": {
     "name": "Davide Memoli",
-    "title": "Full Stack Developer",
-    "bio": "Sviluppatore appassionato di Angular, Node.js e architetture cloud. Creo esperienze web moderne, performanti e mantenibili.",
+    "title": {
+      "it": "Full Stack Developer",
+      "en": "Full Stack Developer"
+    },
+    "bio": {
+      "it": "Sviluppatore appassionato di Angular, Node.js e architetture cloud. Creo esperienze web moderne, performanti e mantenibili.",
+      "en": "Developer passionate about Angular, Node.js, and cloud architectures. I build modern, performant, and maintainable web experiences."
+    },
     "email": "davide.memoli@example.com",
     "github": "https://github.com/davidememoli03",
     "linkedin": "https://www.linkedin.com/in/davidememoli",
-    "location": "Italia"
+    "location": {
+      "it": "Italia",
+      "en": "Italy"
+    }
   },
   "projects": [
     {
       "id": "dm-portfolio",
-      "title": "DM Portfolio",
-      "description": "Libreria Angular riutilizzabile con componenti portfolio, Tailwind CSS e integrazione API.",
+      "title": {
+        "it": "DM Portfolio",
+        "en": "DM Portfolio"
+      },
+      "description": {
+        "it": "Libreria Angular riutilizzabile con componenti portfolio, Tailwind CSS e integrazione API.",
+        "en": "Reusable Angular library with portfolio components, Tailwind CSS, and API integration."
+      },
       "technologies": ["Angular", "Tailwind CSS", "TypeScript"],
       "repoUrl": "https://github.com/davidememoli03/dm-portfolio"
     },
     {
       "id": "cloud-dashboard",
-      "title": "Cloud Dashboard",
-      "description": "Dashboard di monitoraggio con metriche in tempo reale e autenticazione JWT.",
+      "title": {
+        "it": "Cloud Dashboard",
+        "en": "Cloud Dashboard"
+      },
+      "description": {
+        "it": "Dashboard di monitoraggio con metriche in tempo reale e autenticazione JWT.",
+        "en": "Monitoring dashboard with real-time metrics and JWT authentication."
+      },
       "technologies": ["Angular", "Node.js", "Docker", "PostgreSQL"],
       "url": "https://example.com",
       "repoUrl": "https://github.com/davidememoli03"
     },
     {
       "id": "api-starter",
-      "title": "API Starter Kit",
-      "description": "Template Express minimalista con routing modulare, health check e configurazione Docker.",
+      "title": {
+        "it": "API Starter Kit",
+        "en": "API Starter Kit"
+      },
+      "description": {
+        "it": "Template Express minimalista con routing modulare, health check e configurazione Docker.",
+        "en": "Minimal Express template with modular routing, health check, and Docker setup."
+      },
       "technologies": ["Node.js", "Express", "Docker"],
       "repoUrl": "https://github.com/davidememoli03"
     }

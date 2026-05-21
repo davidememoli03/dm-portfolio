@@ -66,6 +66,31 @@ npm start
 
 I dati sono in `server/data/portfolio.json`.
 
+## i18n
+
+Traduzioni runtime con **`@ngx-translate/core`** (`TranslateModule` + pipe `translate`).
+
+File JSON in `projects/portfolio-app/public/i18n/`:
+
+- `it.json` — italiano (fallback)
+- `en.json` — inglese
+
+Configurazione root in `app.config.ts` con `provideTranslateService` e `provideTranslateHttpLoader`.
+
+Nei componenti:
+
+```typescript
+import { TranslateModule } from '@ngx-translate/core';
+// oppure dalla libreria:
+import { TranslateModule } from 'dm-portfolio';
+```
+
+```html
+<h2>{{ 'projects.title' | translate }}</h2>
+```
+
+Lo switch IT/EN cambia lingua a runtime (preferenza salvata in `localStorage`). Il backend risponde con `?lang=it|en` per profilo e progetti.
+
 ## Arcade UI
 
 La libreria [`@davide03memoli/arcade-ui`](https://www.npmjs.com/package/@davide03memoli/arcade-ui) e integrata globalmente:

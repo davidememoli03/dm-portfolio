@@ -6,7 +6,7 @@
     "start": "ng serve portfolio-app --host 0.0.0.0 --proxy-config projects/portfolio-app/proxy.conf.json",
     "start:docker": "ng serve portfolio-app --host 0.0.0.0 --port 4200 --poll 2000 --disable-host-check --proxy-config projects/portfolio-app/proxy.conf.docker.json",
     "build:lib": "ng build dm-portfolio",
-    "build:app": "ng build portfolio-app",
+    "build:app": "ng build portfolio-app --configuration=production",
     "build": "npm run build:lib && npm run build:app",
     "watch": "ng build portfolio-app --watch --configuration development",
     "test": "ng test",
@@ -28,6 +28,8 @@
     "@angular/platform-browser-dynamic": "^21.2.14",
     "@angular/router": "^21.2.14",
     "@davide03memoli/arcade-ui": "^5.7.0",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.16.0"

@@ -1,7 +1,7 @@
 <section class="px-6 py-16 sm:px-10 lg:px-16">
   <div class="arc-panel arc-panel-cyan mx-auto max-w-4xl">
     <div class="arc-panel-header">
-      <span class="arc-badge arc-badge-cyan arc-badge-pulse">PORTFOLIO</span>
+      <span class="arc-badge arc-badge-cyan arc-badge-pulse">{{ 'hero.badge' | translate }}</span>
       @if (profile().location) {
         <span class="arc-badge arc-badge-outline arc-text-caption">{{ profile().location }}</span>
       }
@@ -23,7 +23,7 @@
         class="arc-btn arc-btn-primary"
         arcadeSoundClick="select"
       >
-        CONTACT
+        {{ 'hero.contact' | translate }}
       </a>
     </div>
   </div>

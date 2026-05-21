@@ -8,3 +8,4 @@ export * from './lib/components/hero-section/hero-section.component';
 export * from './lib/components/projects-grid/projects-grid.component';
 export * from './lib/components/contact-section/contact-section.component';
 export * from './lib/arcade-ui';
+export * from './lib/i18n';
