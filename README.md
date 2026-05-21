@@ -5,7 +5,7 @@ Monorepo per un portfolio personale con:
 - **Angular 21** (`projects/portfolio-app`) — applicazione frontend
 - **Libreria `dm-portfolio`** (`projects/dm-portfolio`) — componenti riutilizzabili
 - **Tailwind CSS 4** — styling
-- **Node.js + Express** (`server/`) — API REST minimale
+- **Node.js 24 + Express 5** (`server/`) — API REST minimale
 - **Docker** — ambiente dev e produzione
 
 ## Struttura
