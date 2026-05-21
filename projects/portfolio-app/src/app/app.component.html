@@ -1,0 +1,15 @@
+<main class="min-h-screen">
+  @if (loading()) {
+    <div class="flex min-h-screen items-center justify-center text-slate-300">
+      Caricamento portfolio...
+    </div>
+  } @else if (error()) {
+    <div class="flex min-h-screen items-center justify-center px-6 text-center text-red-300">
+      {{ error() }}
+    </div>
+  } @else if (profile()) {
+    <dm-hero-section [profile]="profile()!" />
+    <dm-projects-grid [projects]="projects()" />
+    <dm-contact-section [profile]="profile()!" />
+  }
+</main>

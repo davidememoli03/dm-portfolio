@@ -1,0 +1,12 @@
+import { Component, input } from '@angular/core';
+
+import { PortfolioProfile } from '../../models/portfolio.models';
+
+@Component({
+  selector: 'dm-hero-section',
+  imports: [],
+  templateUrl: './hero-section.component.html',
+})
+export class HeroSectionComponent {
+  readonly profile = input.required<PortfolioProfile>();
+}

@@ -1,0 +1,51 @@
+{
+  "name": "dm-portfolio",
+  "version": "0.1.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve portfolio-app --host 0.0.0.0 --proxy-config projects/portfolio-app/proxy.conf.json",
+    "start:docker": "ng serve portfolio-app --host 0.0.0.0 --port 4200 --poll 2000 --disable-host-check --proxy-config projects/portfolio-app/proxy.conf.docker.json",
+    "build:lib": "ng build dm-portfolio",
+    "build:app": "ng build portfolio-app",
+    "build": "npm run build:lib && npm run build:app",
+    "watch": "ng build portfolio-app --watch --configuration development",
+    "test": "ng test",
+    "server:install": "npm install --prefix server",
+    "server:dev": "npm run dev --prefix server",
+    "server:start": "npm run start --prefix server",
+    "docker:dev": "docker compose -f docker-compose.dev.yml up --build",
+    "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
+    "docker:prod": "docker compose up --build",
+    "docker:prod:down": "docker compose down"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.26",
+    "@angular/cli": "^19.2.26",
+    "@angular/compiler-cli": "^19.2.0",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^19.2.0",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8",
+    "typescript": "~5.7.2"
+  }
+}

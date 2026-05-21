@@ -1,0 +1,9 @@
+/*
+ * Public API Surface of dm-portfolio
+ */
+
+export * from './lib/models/portfolio.models';
+export * from './lib/services/portfolio-api.service';
+export * from './lib/components/hero-section/hero-section.component';
+export * from './lib/components/projects-grid/projects-grid.component';
+export * from './lib/components/contact-section/contact-section.component';
