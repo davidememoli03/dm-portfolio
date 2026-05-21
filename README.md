@@ -2,7 +2,7 @@
 
 Monorepo per un portfolio personale con:
 
-- **Angular 19** (`projects/portfolio-app`) — applicazione frontend
+- **Angular 21** (`projects/portfolio-app`) — applicazione frontend
 - **Libreria `dm-portfolio`** (`projects/dm-portfolio`) — componenti riutilizzabili
 - **Tailwind CSS 4** — styling
 - **Node.js + Express** (`server/`) — API REST minimale
