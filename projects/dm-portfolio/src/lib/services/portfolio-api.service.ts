@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ContactMessageInput, ContactMessageResponse } from '../models/contact.models';
-import { PortfolioProfile, PortfolioProject, PortfolioExperience } from '../models/portfolio.models';
+import { PortfolioProfile, PortfolioProject, PortfolioExperience, PortfolioSkillGroup } from '../models/portfolio.models';
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioApiService {
@@ -33,6 +33,12 @@ export class PortfolioApiService {
 
   getExperience(): Observable<PortfolioExperience[]> {
     return this.http.get<PortfolioExperience[]>(`${this.apiBaseUrl}/experience`, {
+      params: this.localeParams(),
+    });
+  }
+
+  getSkills(): Observable<PortfolioSkillGroup[]> {
+    return this.http.get<PortfolioSkillGroup[]>(`${this.apiBaseUrl}/skills`, {
       params: this.localeParams(),
     });
   }

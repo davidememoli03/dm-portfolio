@@ -43,3 +43,9 @@ export interface PortfolioExperience {
   description: string;
   url: string;
 }
+
+export interface PortfolioSkillGroup {
+  id: string;
+  title: string;
+  items: string[];
+}

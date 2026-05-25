@@ -164,5 +164,51 @@
       },
       "url": "https://iwsconsulting.it/"
     }
+  ],
+  "skills": [
+    {
+      "id": "languages",
+      "title": {
+        "it": "Linguaggi e framework",
+        "en": "Languages & frameworks"
+      },
+      "items": [
+        "Java",
+        "C++",
+        "Python (Flask, Django)",
+        "PHP (Laravel)",
+        "JavaScript",
+        "TypeScript (Angular)"
+      ]
+    },
+    {
+      "id": "devops",
+      "title": {
+        "it": "DevOps e infrastruttura",
+        "en": "DevOps & infrastructure"
+      },
+      "items": ["Docker", "Nginx"]
+    },
+    {
+      "id": "game-dev",
+      "title": {
+        "it": "Produzione videogiochi",
+        "en": "Game development"
+      },
+      "items": ["Unity", "Unreal Engine", "Autodesk Maya"]
+    },
+    {
+      "id": "ai",
+      "title": {
+        "it": "Intelligenza artificiale",
+        "en": "Artificial intelligence"
+      },
+      "items": [
+        {
+          "it": "Integrazione AI nei software (Ollama)",
+          "en": "AI integration in software (Ollama)"
+        }
+      ]
+    }
   ]
 }

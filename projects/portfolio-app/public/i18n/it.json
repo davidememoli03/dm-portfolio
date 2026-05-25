@@ -19,6 +19,11 @@
     "subtitle": "Dove ho maturato esperienza professionale in ambito IT.",
     "visitWebsite": "Visita il sito"
   },
+  "skills": {
+    "eyebrow": "Stack",
+    "title": "Competenze",
+    "subtitle": "Linguaggi, strumenti e ambiti in cui lavoro o ho lavorato."
+  },
   "projectDetail": {
     "eyebrow": "Progetto",
     "back": "Torna ai progetti",

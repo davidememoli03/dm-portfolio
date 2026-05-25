@@ -19,6 +19,11 @@
     "subtitle": "Where I've gained professional IT experience.",
     "visitWebsite": "Visit website"
   },
+  "skills": {
+    "eyebrow": "Stack",
+    "title": "Skills",
+    "subtitle": "Languages, tools, and domains I work in or have worked with."
+  },
   "projectDetail": {
     "eyebrow": "Project",
     "back": "Back to projects",

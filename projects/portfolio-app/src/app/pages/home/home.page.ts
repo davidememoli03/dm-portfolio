@@ -10,7 +10,9 @@ import {
   PortfolioExperience,
   PortfolioProfile,
   PortfolioProject,
+  PortfolioSkillGroup,
   ProjectsGridComponent,
+  SkillsSectionComponent,
 } from 'dm-portfolio';
 
 @Component({
@@ -19,6 +21,7 @@ import {
     TranslateModule,
     HeroSectionComponent,
     ExperienceSectionComponent,
+    SkillsSectionComponent,
     ProjectsGridComponent,
     ContactSectionComponent,
   ],
@@ -37,6 +40,7 @@ import {
     } @else if (profile()) {
       <dm-hero-section [profile]="profile()!" />
       <dm-experience-section [experience]="experience()" />
+      <dm-skills-section [skills]="skills()" />
       <dm-projects-grid [projects]="projects()" />
       <dm-contact-section [profile]="profile()!" />
     }
@@ -48,6 +52,7 @@ export class HomePage implements OnInit {
 
   readonly profile = signal<PortfolioProfile | null>(null);
   readonly experience = signal<PortfolioExperience[]>([]);
+  readonly skills = signal<PortfolioSkillGroup[]>([]);
   readonly projects = signal<PortfolioProject[]>([]);
   readonly loading = signal(true);
   readonly error = signal<string | null>(null);
@@ -64,11 +69,13 @@ export class HomePage implements OnInit {
     forkJoin({
       profile: this.portfolioApi.getProfile(),
       experience: this.portfolioApi.getExperience(),
+      skills: this.portfolioApi.getSkills(),
       projects: this.portfolioApi.getProjects(),
     }).subscribe({
-      next: ({ profile, experience, projects }) => {
+      next: ({ profile, experience, skills, projects }) => {
         this.profile.set(profile);
         this.experience.set(experience);
+        this.skills.set(skills);
         this.projects.set(projects);
         this.loading.set(false);
       },

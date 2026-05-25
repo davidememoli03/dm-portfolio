@@ -1,0 +1,30 @@
+<section id="skills" class="content-wrap scroll-mt-24 py-16 sm:py-20" dmScrollReveal>
+  <div class="mb-10 max-w-2xl sm:mb-14">
+    <span class="text-eyebrow text-[var(--color-accent)]">
+      {{ 'skills.eyebrow' | translate }}
+    </span>
+    <h2 class="text-headline mt-3 text-[var(--color-text)]">
+      {{ 'skills.title' | translate }}
+    </h2>
+    <p class="mt-3 text-base text-[var(--color-text-muted)] sm:text-lg">
+      {{ 'skills.subtitle' | translate }}
+    </p>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    @for (group of skills(); track group.id) {
+      <article class="glass rounded-2xl p-6">
+        <h3 class="text-base font-semibold text-[var(--color-text)] sm:text-lg">
+          {{ group.title }}
+        </h3>
+        <ul class="mt-4 flex flex-wrap gap-1.5">
+          @for (item of group.items; track item) {
+            <li class="rounded-full border border-[var(--color-surface-glass-border)] bg-[var(--color-accent-soft)] px-2.5 py-0.5 text-xs font-medium text-[var(--color-text-muted)] sm:text-sm">
+              {{ item }}
+            </li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>
