@@ -1,29 +1,41 @@
-<section class="px-6 py-16 sm:px-10 lg:px-16">
-  <div class="arc-panel arc-panel-cyan mx-auto max-w-4xl">
-    <div class="arc-panel-header">
-      <span class="arc-badge arc-badge-cyan arc-badge-pulse">{{ 'hero.badge' | translate }}</span>
+<section class="relative py-20 sm:py-28 lg:py-32">
+  <div class="mx-auto max-w-3xl text-center">
+    <div class="mb-6 flex flex-wrap items-center justify-center gap-2">
+      <span class="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+        {{ 'hero.badge' | translate }}
+      </span>
       @if (profile().location) {
-        <span class="arc-badge arc-badge-outline arc-text-caption">{{ profile().location }}</span>
+        <span class="glass inline-flex items-center rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
+          {{ profile().location }}
+        </span>
       }
     </div>
 
-    <div class="arc-panel-body text-center">
-      <h1 class="arc-text-neon arc-glow-cyan arc-text-pixel-shadow">
-        {{ profile().name }}
-      </h1>
-      <p class="arc-text-mono arc-glow-green mt-4">{{ profile().title }}</p>
-      <p class="arc-text-body mt-6 max-w-2xl mx-auto">
-        {{ profile().bio }}
-      </p>
-    </div>
+    <h1 class="text-display text-[var(--color-text)]">
+      {{ profile().name }}
+    </h1>
 
-    <div class="arc-panel-footer justify-center">
+    <p class="mx-auto mt-5 max-w-xl text-lg font-medium text-[var(--color-text-muted)] sm:text-xl">
+      {{ profile().title }}
+    </p>
+
+    <p class="mx-auto mt-6 max-w-prose text-base leading-relaxed text-[var(--color-text-muted)] sm:text-lg">
+      {{ profile().bio }}
+    </p>
+
+    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
         [href]="'mailto:' + profile().email"
-        class="arc-btn arc-btn-primary"
-        arcadeSoundClick="select"
+        class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-accent-fg)] shadow-md transition-transform hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5"
       >
         {{ 'hero.contact' | translate }}
+      </a>
+      <a
+        href="#projects"
+        class="glass inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-transform hover:-translate-y-0.5"
+      >
+        {{ 'hero.viewProjects' | translate }}
       </a>
     </div>
   </div>

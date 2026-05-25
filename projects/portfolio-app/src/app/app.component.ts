@@ -1,7 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
-import { arcadeUiAngularImports } from '@davide03memoli/arcade-ui/angular';
 
 import {
   ContactSectionComponent,
@@ -13,14 +12,16 @@ import {
 } from 'dm-portfolio';
 
 import { LocaleSwitcherComponent } from './locale-switcher/locale-switcher.component';
+import { ThemeToggleComponent } from './theme/theme-toggle.component';
+import { ThemeService } from './theme/theme.service';
 import { getStoredLanguage } from './i18n/locales';
 
 @Component({
   selector: 'app-root',
   imports: [
     TranslateModule,
-    ...arcadeUiAngularImports,
     LocaleSwitcherComponent,
+    ThemeToggleComponent,
     HeroSectionComponent,
     ProjectsGridComponent,
     ContactSectionComponent,
@@ -31,8 +32,8 @@ import { getStoredLanguage } from './i18n/locales';
 export class AppComponent implements OnInit {
   private readonly portfolioApi = inject(PortfolioApiService);
   private readonly translate = inject(TranslateService);
+  private readonly themeService = inject(ThemeService);
 
-  readonly theme = 'arc-theme-phosphor';
   readonly profile = signal<PortfolioProfile | null>(null);
   readonly projects = signal<PortfolioProject[]>([]);
   readonly loading = signal(true);

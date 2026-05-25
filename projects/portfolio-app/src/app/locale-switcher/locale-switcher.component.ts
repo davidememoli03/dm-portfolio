@@ -1,30 +1,35 @@
 import { Component, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ArcadeSoundDirective } from '@davide03memoli/arcade-ui/angular';
 
 import { SUPPORTED_LOCALES, storeLanguage } from '../i18n/locales';
 
 @Component({
   selector: 'app-locale-switcher',
-  imports: [TranslateModule, ArcadeSoundDirective],
+  imports: [TranslateModule],
   template: `
-    <div class="arc-panel arc-panel-cyan inline-flex p-1 gap-1">
+    <div
+      class="glass inline-flex items-center gap-1 rounded-full p-1"
+      role="group"
+      aria-label="Language"
+    >
       @for (locale of locales; track locale.code) {
-        @if (locale.code === currentLanguage) {
-          <span class="arc-btn arc-btn-primary arc-btn-sm" [attr.aria-current]="'true'">
-            {{ locale.label }}
-          </span>
-        } @else {
-          <button
-            type="button"
-            class="arc-btn arc-btn-ghost arc-btn-sm"
-            arcadeSoundClick="select"
-            [attr.lang]="locale.code"
-            (click)="switchLanguage(locale.code)"
-          >
-            {{ locale.label }}
-          </button>
-        }
+        @let active = locale.code === currentLanguage;
+        <button
+          type="button"
+          class="relative min-h-[36px] min-w-[44px] rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-colors"
+          [class]="
+            active
+              ? 'bg-[var(--color-accent)] text-[var(--color-accent-fg)] shadow-sm'
+              : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-accent-soft)]'
+          "
+          [attr.aria-pressed]="active"
+          [attr.aria-label]="locale.code"
+          [attr.lang]="locale.code"
+          [disabled]="active"
+          (click)="switchLanguage(locale.code)"
+        >
+          {{ locale.label }}
+        </button>
       }
     </div>
   `,

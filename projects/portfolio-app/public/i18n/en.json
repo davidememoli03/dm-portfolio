@@ -1,24 +1,33 @@
 {
   "hero": {
-    "badge": "PORTFOLIO",
-    "contact": "CONTACT"
+    "badge": "Available for projects",
+    "contact": "Get in touch",
+    "viewProjects": "View projects"
   },
   "projects": {
-    "title": "PROJECTS",
-    "subtitle": "A selection of the most recent work",
-    "demo": "DEMO",
-    "repo": "REPO"
+    "eyebrow": "Selected work",
+    "title": "Projects",
+    "subtitle": "A selection of the most recent work.",
+    "demo": "Demo",
+    "repo": "Repository"
   },
   "contact": {
-    "title": "CONTACT",
-    "subtitle": "Have a project in mind? Get in touch.",
-    "github": "GITHUB",
-    "linkedin": "LINKEDIN"
+    "eyebrow": "Let's talk",
+    "title": "Let's build your next project",
+    "subtitle": "Have an idea to ship or just want to chat? I'm one email away.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
   },
   "app": {
-    "loading": "LOADING PORTFOLIO...",
+    "loading": "Loading the portfolio...",
     "error": {
       "load": "Unable to load portfolio data."
     }
+  },
+  "theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
   }
 }

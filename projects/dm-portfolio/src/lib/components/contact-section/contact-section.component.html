@@ -1,44 +1,45 @@
-<section class="px-6 py-16 sm:px-10 lg:px-16">
-  <div class="arc-panel arc-panel-green mx-auto max-w-3xl text-center">
-    <div class="arc-panel-header justify-center">
-      <h2 class="arc-text-neon arc-glow-green">{{ 'contact.title' | translate }}</h2>
-    </div>
+<section id="contact" class="scroll-mt-24 py-16 sm:py-24">
+  <div class="glass-strong mx-auto max-w-2xl rounded-3xl p-8 text-center sm:p-12">
+    <span class="text-eyebrow text-[var(--color-accent)]">
+      {{ 'contact.eyebrow' | translate }}
+    </span>
+    <h2 class="text-headline mt-3 text-[var(--color-text)]">
+      {{ 'contact.title' | translate }}
+    </h2>
+    <p class="mx-auto mt-3 max-w-md text-base text-[var(--color-text-muted)] sm:text-lg">
+      {{ 'contact.subtitle' | translate }}
+    </p>
 
-    <div class="arc-panel-body">
-      <p class="arc-text-caption">{{ 'contact.subtitle' | translate }}</p>
+    <a
+      [href]="'mailto:' + profile().email"
+      class="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-full bg-[var(--color-accent)] px-7 py-3 text-base font-semibold text-[var(--color-accent-fg)] shadow-md transition-transform hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5"
+    >
+      {{ profile().email }}
+    </a>
 
-      <a
-        [href]="'mailto:' + profile().email"
-        class="arc-btn arc-btn-primary mt-8"
-        arcadeSoundClick="coin"
-      >
-        {{ profile().email }}
-      </a>
-    </div>
-
-    <div class="arc-panel-footer justify-center gap-4">
-      @if (profile().github) {
-        <a
-          [href]="profile().github"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="arc-btn arc-btn-ghost arc-btn-sm"
-          arcadeSoundClick="select"
-        >
-          {{ 'contact.github' | translate }}
-        </a>
-      }
-      @if (profile().linkedin) {
-        <a
-          [href]="profile().linkedin"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="arc-btn arc-btn-ghost arc-btn-sm"
-          arcadeSoundClick="select"
-        >
-          {{ 'contact.linkedin' | translate }}
-        </a>
-      }
-    </div>
+    @if (profile().github || profile().linkedin) {
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-2">
+        @if (profile().github) {
+          <a
+            [href]="profile().github"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
+          >
+            {{ 'contact.github' | translate }}
+          </a>
+        }
+        @if (profile().linkedin) {
+          <a
+            [href]="profile().linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
+          >
+            {{ 'contact.linkedin' | translate }}
+          </a>
+        }
+      </div>
+    }
   </div>
 </section>

@@ -1,24 +1,33 @@
 {
   "hero": {
-    "badge": "PORTFOLIO",
-    "contact": "CONTATTI"
+    "badge": "Disponibile per progetti",
+    "contact": "Scrivimi",
+    "viewProjects": "Vedi i progetti"
   },
   "projects": {
-    "title": "PROGETTI",
-    "subtitle": "Una selezione dei lavori più recenti",
-    "demo": "DEMO",
-    "repo": "REPO"
+    "eyebrow": "Lavori selezionati",
+    "title": "Progetti",
+    "subtitle": "Una selezione dei lavori piu' recenti.",
+    "demo": "Demo",
+    "repo": "Repository"
   },
   "contact": {
-    "title": "CONTATTI",
-    "subtitle": "Hai un progetto in mente? Scrivimi.",
-    "github": "GITHUB",
-    "linkedin": "LINKEDIN"
+    "eyebrow": "Mettiamoci in contatto",
+    "title": "Parliamo del tuo prossimo progetto",
+    "subtitle": "Hai un'idea da sviluppare o vuoi semplicemente confrontarti? Sono a un'email di distanza.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
   },
   "app": {
-    "loading": "CARICAMENTO PORTFOLIO...",
+    "loading": "Caricamento del portfolio...",
     "error": {
       "load": "Impossibile caricare i dati del portfolio."
     }
+  },
+  "theme": {
+    "label": "Tema",
+    "system": "Sistema",
+    "light": "Chiaro",
+    "dark": "Scuro"
   }
 }
