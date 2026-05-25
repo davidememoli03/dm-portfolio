@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@import "../../shared-styles/tokens.css";
+
+.admin-shell {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Light dim on glass surfaces hovered with action affordance. */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  min-height: 40px;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.action-btn-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+}
+
+.action-btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.action-btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-surface-glass-border);
+}
+
+.action-btn-ghost:hover {
+  background: var(--color-accent-soft);
+}
+
+.action-btn-danger {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.action-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

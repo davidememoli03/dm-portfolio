@@ -11,7 +11,7 @@
     },
     "email": "davide.memoli@example.com",
     "github": "https://github.com/davidememoli03",
-    "linkedin": "https://www.linkedin.com/in/davidememoli",
+    "linkedin": "https://www.linkedin.com/in/davide-memoli/",
     "location": {
       "it": "Italia",
       "en": "Italy"
@@ -19,44 +19,108 @@
   },
   "projects": [
     {
+      "id": "arcade-ui",
+      "title": {
+        "it": "Arcade UI",
+        "en": "Arcade UI"
+      },
+      "description": {
+        "it": "Design system CSS e Angular in stile arcade anni '80: neon, effetti CRT, audio synth e oltre 80 componenti, senza dipendenze runtime.",
+        "en": "80s arcade CSS and Angular design system: neon visuals, CRT effects, synth audio, and 80+ components with zero runtime dependencies."
+      },
+      "technologies": ["TypeScript", "CSS", "Web Audio", "Angular"],
+      "npmUrl": "https://www.npmjs.com/package/@davide03memoli/arcade-ui",
+      "url": "https://davidememoli03.github.io/Arcade-UI/",
+      "repoUrl": "https://github.com/davidememoli03/Arcade-UI",
+      "detail": {
+        "tagline": {
+          "it": "Componenti HUD, temi pronti e suoni synth per landing page, giochi web e demo retro.",
+          "en": "HUD components, ready-made themes, and synth sounds for landing pages, web games, and retro demos."
+        },
+        "highlights": [
+          {
+            "title": { "it": "80+ componenti", "en": "80+ components" },
+            "body": {
+              "it": "Button, panel, card, tabs, modal, table, toast e utility per glitch, CRT e glow.",
+              "en": "Buttons, panels, cards, tabs, modals, tables, toasts, plus glitch, CRT, and glow utilities."
+            }
+          },
+          {
+            "title": { "it": "Audio integrato", "en": "Built-in audio" },
+            "body": {
+              "it": "AudioManager con effetti synth via Web Audio API, senza asset audio obbligatori.",
+              "en": "AudioManager with synth effects via the Web Audio API, no required audio assets."
+            }
+          },
+          {
+            "title": { "it": "Vanilla, React, Angular", "en": "Vanilla, React, Angular" },
+            "body": {
+              "it": "Usabile con HTML puro o con wrapper React e directive Angular standalone.",
+              "en": "Works with plain HTML or React wrappers and standalone Angular directives."
+            }
+          }
+        ],
+        "sections": [
+          {
+            "title": { "it": "Perché l'ho creato", "en": "Why I built it" },
+            "body": {
+              "it": "Volevo un kit UI arcade completo ma leggero: facile da integrare, coerente visivamente e divertente da usare, senza framework obbligatori né bundle pesanti.",
+              "en": "I wanted a complete yet lightweight arcade UI kit: easy to integrate, visually consistent, and fun to use, with no mandatory framework or heavy bundles."
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "dm-portfolio",
       "title": {
         "it": "DM Portfolio",
         "en": "DM Portfolio"
       },
       "description": {
-        "it": "Libreria Angular riutilizzabile con componenti portfolio, Tailwind CSS e integrazione API.",
-        "en": "Reusable Angular library with portfolio components, Tailwind CSS, and API integration."
+        "it": "Il monorepo di questo sito: libreria Angular condivisa, app portfolio, pannello admin, API Express e stack Docker.",
+        "en": "The monorepo behind this site: shared Angular library, portfolio app, admin panel, Express API, and Docker stack."
       },
-      "technologies": ["Angular", "Tailwind CSS", "TypeScript"],
-      "repoUrl": "https://github.com/davidememoli03/dm-portfolio"
-    },
-    {
-      "id": "cloud-dashboard",
-      "title": {
-        "it": "Cloud Dashboard",
-        "en": "Cloud Dashboard"
-      },
-      "description": {
-        "it": "Dashboard di monitoraggio con metriche in tempo reale e autenticazione JWT.",
-        "en": "Monitoring dashboard with real-time metrics and JWT authentication."
-      },
-      "technologies": ["Angular", "Node.js", "Docker", "PostgreSQL"],
-      "url": "https://example.com",
-      "repoUrl": "https://github.com/davidememoli03"
-    },
-    {
-      "id": "api-starter",
-      "title": {
-        "it": "API Starter Kit",
-        "en": "API Starter Kit"
-      },
-      "description": {
-        "it": "Template Express minimalista con routing modulare, health check e configurazione Docker.",
-        "en": "Minimal Express template with modular routing, health check, and Docker setup."
-      },
-      "technologies": ["Node.js", "Express", "Docker"],
-      "repoUrl": "https://github.com/davidememoli03"
+      "technologies": ["Angular", "Tailwind CSS", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
+      "repoUrl": "https://github.com/davidememoli03/dm-portfolio",
+      "detail": {
+        "tagline": {
+          "it": "Portfolio pubblico, backoffice admin e backend condiviso in un unico workspace.",
+          "en": "Public portfolio, admin backoffice, and shared backend in one workspace."
+        },
+        "highlights": [
+          {
+            "title": { "it": "Libreria riutilizzabile", "en": "Reusable library" },
+            "body": {
+              "it": "Hero, griglia progetti, form contatti e client API esportati dal package dm-portfolio.",
+              "en": "Hero, project grid, contact form, and API client exported from the dm-portfolio package."
+            }
+          },
+          {
+            "title": { "it": "UI glass e i18n", "en": "Glass UI and i18n" },
+            "body": {
+              "it": "Design token condivisi, tema chiaro/scuro, animazioni scroll reveal e contenuti in italiano e inglese.",
+              "en": "Shared design tokens, light/dark theme, scroll reveal animations, and Italian and English content."
+            }
+          },
+          {
+            "title": { "it": "Backend e admin", "en": "Backend and admin" },
+            "body": {
+              "it": "Form contatti con rate limit, login JWT, gestione messaggi, analytics visite e compose Docker per dev e produzione.",
+              "en": "Contact form with rate limiting, JWT login, message management, visit analytics, and Docker compose for dev and production."
+            }
+          }
+        ],
+        "sections": [
+          {
+            "title": { "it": "Architettura", "en": "Architecture" },
+            "body": {
+              "it": "Il frontend pubblico e l'admin consumano la stessa API Express su Postgres. La libreria Angular incapsula componenti e servizi così portfolio e altri progetti possono condividere la stessa base UI.",
+              "en": "The public frontend and admin both consume the same Express API on Postgres. The Angular library encapsulates components and services so the portfolio and other projects can share the same UI foundation."
+            }
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,300 @@
+<section #arcadeHost class="arcade-project-shell arc-bg-grid" [class]="theme" [arcadeTheme]="theme" arcadeThemeTarget="host">
+  <div class="arcade-layout">
+    <a
+      routerLink="/"
+      fragment="projects"
+      class="arc-btn arc-btn-ghost arc-btn-sm self-start"
+      arcadeSoundClick="select"
+    >
+      ← {{ 'projectDetail.back' | translate }}
+    </a>
+
+    <div class="arc-panel arc-panel-cyan">
+      <div class="arc-panel-header">
+        <span class="arc-glow-cyan arcade-kicker">
+          @if (project().detail?.tagline) {
+            {{ project().detail!.tagline }}
+          }
+        </span>
+        <span class="arc-badge arc-badge-cyan" style="margin-left: auto;">v{{ version }}</span>
+      </div>
+
+      <div class="arc-panel-body">
+        <h1 class="arc-glitch arcade-title arc-text-neon" [attr.data-text]="project().title">
+          {{ project().title }}
+        </h1>
+        <p class="arcade-body-copy" style="margin-top: 1rem;">
+          {{ project().description }}
+        </p>
+
+        @if (project().technologies.length) {
+          <div class="arcade-chip-row" style="margin-top: 1rem;">
+            @for (tech of project().technologies; track tech) {
+              <span class="arc-badge arc-badge-outline">{{ tech }}</span>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="arc-panel-footer">
+        @if (project().url) {
+          <a
+            [href]="project().url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="arc-btn arc-btn-primary"
+            arcadeSoundClick="select"
+          >
+            STORYBOOK
+          </a>
+        }
+        @if (project().npmUrl) {
+          <a
+            [href]="project().npmUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="arc-btn arc-btn-ghost"
+            arcadeSoundClick="coin"
+          >
+            NPM
+          </a>
+        }
+        @if (project().repoUrl) {
+          <a
+            [href]="project().repoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="arc-btn arc-btn-ghost"
+            arcadeSoundClick="blip"
+          >
+            GITHUB
+          </a>
+        }
+      </div>
+    </div>
+
+    <section aria-labelledby="arcade-gallery-title">
+      <h2 id="arcade-gallery-title" class="arcade-section-title">
+        {{ 'arcadeUi.galleryTitle' | translate }}
+      </h2>
+
+      <div class="arcade-gallery">
+        <article class="arc-card arc-card-cyan">
+          <div class="arc-card-header">
+            <div class="arc-card-avatar" aria-hidden="true">🕹️</div>
+            <h3 class="arc-card-title">BUTTONS</h3>
+            <p class="arc-card-subtitle">Primary · ghost · danger</p>
+          </div>
+          <div class="arc-card-body arcade-actions">
+            <button type="button" class="arc-btn arc-btn-primary arc-btn-sm" arcadeSoundClick="coin">COIN</button>
+            <button type="button" class="arc-btn arc-btn-ghost arc-btn-sm" arcadeSoundClick="select">SELECT</button>
+            <button type="button" class="arc-btn arc-btn-danger arc-btn-sm" arcadeSoundClick="gameover">QUIT</button>
+          </div>
+        </article>
+
+        <article class="arc-card arc-card-yellow">
+          <div class="arc-card-header">
+            <div class="arc-card-avatar" aria-hidden="true">🏆</div>
+            <h3 class="arc-card-title">BADGES</h3>
+            <p class="arc-card-subtitle">Status · outline</p>
+          </div>
+          <div class="arc-card-body arcade-chip-row">
+            <span class="arc-badge arc-badge-cyan">NEW</span>
+            <span class="arc-badge arc-badge-yellow">HOT</span>
+            <span class="arc-badge arc-badge-purple">LIB</span>
+            <span class="arc-badge arc-badge-outline">ZERO DEPS</span>
+          </div>
+        </article>
+
+        <article class="arc-panel arc-panel-glass arcade-gallery-wide">
+          <div class="arc-panel-header">
+            <span class="arcade-kicker">PROGRESS · INPUT · TOGGLE</span>
+          </div>
+          <div class="arc-panel-body">
+            <div class="arc-progress-wrapper" style="margin-bottom: 1rem;">
+              <div class="arc-progress-label">LOADING ASSETS</div>
+              <div class="arc-progress arc-progress-cyan">
+                <div class="arc-progress-bar"></div>
+              </div>
+            </div>
+
+            <div class="arc-input-wrapper" style="margin-bottom: 1rem;">
+              <label class="arc-label" for="arcade-player">PLAYER NAME</label>
+              <input id="arcade-player" class="arc-input" maxlength="3" placeholder="DM" value="DM" />
+            </div>
+
+            <label class="arc-toggle arc-toggle-on">
+              <input class="arc-toggle-input" type="checkbox" checked />
+              <span class="arc-toggle-switch" aria-hidden="true"></span>
+              <span class="arc-toggle-label">SFX ENABLED</span>
+            </label>
+          </div>
+        </article>
+
+        <article class="arc-panel arc-panel-cyan arcade-gallery-wide">
+          <div class="arc-panel-header">
+            <span class="arcade-kicker">LEADERBOARD TABLE</span>
+          </div>
+          <div class="arc-panel-body">
+            <div class="arc-table-wrapper">
+              <table class="arc-table arc-table-cyan arc-table-leaderboard">
+                <thead>
+                  <tr>
+                    <th class="arc-table-th arc-table-th-rank">#</th>
+                    <th class="arc-table-th">PLAYER</th>
+                    <th class="arc-table-th arc-table-th-num">SCORE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="arc-table-row arc-table-row-gold">
+                    <td class="arc-table-td arc-table-td-rank"><span class="arc-table-rank-num">1</span></td>
+                    <td class="arc-table-td">ARCADE UI</td>
+                    <td class="arc-table-td arc-table-td-num">999999</td>
+                  </tr>
+                  <tr class="arc-table-row">
+                    <td class="arc-table-td arc-table-td-rank"><span class="arc-table-rank-num">2</span></td>
+                    <td class="arc-table-td">ANGULAR</td>
+                    <td class="arc-table-td arc-table-td-num">880000</td>
+                  </tr>
+                  <tr class="arc-table-row arc-table-row-muted">
+                    <td class="arc-table-td arc-table-td-rank"><span class="arc-table-rank-num">3</span></td>
+                    <td class="arc-table-td">VANILLA</td>
+                    <td class="arc-table-td arc-table-td-num">720000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="arc-panel arc-panel-cyan" aria-label="Project details">
+      <div class="arc-tabs arc-tabs-cyan" style="border: none; box-shadow: none; background: transparent;">
+        <div class="arcade-tab-bar arc-tab-list" role="tablist">
+        <button
+          type="button"
+          class="arc-tab"
+          role="tab"
+          [class.arc-tab-active]="isTab('overview')"
+          [attr.aria-selected]="isTab('overview')"
+          (click)="setTab('overview')"
+          arcadeSoundClick="select"
+        >
+          OVERVIEW
+        </button>
+        <button
+          type="button"
+          class="arc-tab"
+          role="tab"
+          [class.arc-tab-active]="isTab('components')"
+          [attr.aria-selected]="isTab('components')"
+          (click)="setTab('components')"
+          arcadeSoundClick="select"
+        >
+          COMPONENTS
+        </button>
+        <button
+          type="button"
+          class="arc-tab"
+          role="tab"
+          [attr.aria-selected]="isTab('install')"
+          [class.arc-tab-active]="isTab('install')"
+          (click)="setTab('install')"
+          arcadeSoundClick="select"
+        >
+          INSTALL
+        </button>
+        </div>
+      </div>
+
+      @if (isTab('overview')) {
+        <div class="arcade-tab-panel" role="tabpanel">
+          @if (project().detail?.highlights?.length) {
+            <div class="arcade-gallery">
+              @for (item of project().detail!.highlights; track item.title) {
+                <article class="arc-card arc-card-cyan">
+                  <div class="arc-card-header">
+                    <h3 class="arc-card-title">{{ item.title }}</h3>
+                  </div>
+                  <div class="arc-card-body">
+                    <p class="arcade-body-copy">{{ item.body }}</p>
+                  </div>
+                </article>
+              }
+            </div>
+          }
+
+          @if (project().detail?.sections?.length) {
+            @for (section of project().detail!.sections; track section.title) {
+              <article class="arc-panel arc-panel-glass" style="margin-top: 1rem;">
+                <div class="arc-panel-header">
+                  <span class="arcade-kicker">{{ section.title }}</span>
+                </div>
+                <div class="arc-panel-body">
+                  <p class="arcade-body-copy">{{ section.body }}</p>
+                </div>
+              </article>
+            }
+          }
+        </div>
+      }
+
+      @if (isTab('components')) {
+        <div class="arcade-tab-panel" role="tabpanel">
+          <div class="arc-table-wrapper">
+            <table class="arc-table arc-table-cyan">
+              <thead>
+                <tr>
+                  <th class="arc-table-th">Component</th>
+                  <th class="arc-table-th">Variants</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (row of components; track row.name) {
+                  <tr class="arc-table-row">
+                    <td class="arc-table-td">{{ row.name }}</td>
+                    <td class="arc-table-td">{{ row.variant }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+
+      @if (isTab('install')) {
+        <div class="arcade-tab-panel" role="tabpanel">
+          <div class="arc-input-wrapper" style="margin-bottom: 1rem;">
+            <label class="arc-label">NPM</label>
+            <code class="arc-input arcade-install-code">npm install @davide03memoli/arcade-ui@{{ version }}</code>
+          </div>
+          <div class="arc-input-wrapper" style="margin-bottom: 1rem;">
+            <label class="arc-label">ANGULAR</label>
+            <code class="arc-input arcade-install-code">import &#123; arcadeUiAngularImports &#125; from '@davide03memoli/arcade-ui/angular'</code>
+          </div>
+          <div class="arc-input-wrapper">
+            <label class="arc-label">THEME</label>
+            <code class="arc-input arcade-install-code">@import '@davide03memoli/arcade-ui/themes/ice-blue';</code>
+          </div>
+          <p class="arcade-body-copy" style="margin-top: 1rem;">
+            {{ 'arcadeUi.installHint' | translate }}
+          </p>
+          @if (project().npmUrl) {
+            <div style="margin-top: 1rem;">
+              <a
+                [href]="project().npmUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="arc-btn arc-btn-primary"
+                arcadeSoundClick="win"
+              >
+                OPEN NPM
+              </a>
+            </div>
+          }
+        </div>
+      }
+    </section>
+  </div>
+</section>

@@ -1,4 +1,4 @@
-<section class="relative py-20 sm:py-28 lg:py-32">
+<section class="relative py-20 sm:py-28 lg:py-32" dmScrollReveal [dmScrollRevealImmediate]="true">
   <div class="mx-auto max-w-3xl text-center">
     <div class="mb-6 flex flex-wrap items-center justify-center gap-2">
       <span class="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
@@ -26,7 +26,7 @@
 
     <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
-        [href]="'mailto:' + profile().email"
+        href="#contact"
         class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-accent-fg)] shadow-md transition-transform hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5"
       >
         {{ 'hero.contact' | translate }}

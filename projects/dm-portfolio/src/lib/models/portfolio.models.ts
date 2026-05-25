@@ -8,6 +8,22 @@ export interface PortfolioProfile {
   location?: string;
 }
 
+export interface PortfolioProjectHighlight {
+  title: string;
+  body: string;
+}
+
+export interface PortfolioProjectSection {
+  title: string;
+  body: string;
+}
+
+export interface PortfolioProjectDetail {
+  tagline: string;
+  highlights: PortfolioProjectHighlight[];
+  sections: PortfolioProjectSection[];
+}
+
 export interface PortfolioProject {
   id: string;
   title: string;
@@ -15,4 +31,6 @@ export interface PortfolioProject {
   technologies: string[];
   url?: string;
   repoUrl?: string;
+  npmUrl?: string;
+  detail?: PortfolioProjectDetail;
 }

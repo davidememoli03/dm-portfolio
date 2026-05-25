@@ -10,4 +10,4 @@ export {
   ARCADE_THEME_CLASSES,
 } from '@davide03memoli/arcade-ui/angular';
 
-export { AudioManager, bindGlitch } from '@davide03memoli/arcade-ui';
+export { AudioManager, bindGlitch, bindTabs, version } from '@davide03memoli/arcade-ui';

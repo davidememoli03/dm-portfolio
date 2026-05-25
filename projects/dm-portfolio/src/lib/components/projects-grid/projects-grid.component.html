@@ -1,4 +1,4 @@
-<section id="projects" class="scroll-mt-24 py-16 sm:py-20">
+<section id="projects" class="content-wrap scroll-mt-24 py-16 sm:py-20" dmScrollReveal>
   <div class="mb-10 max-w-2xl sm:mb-14">
     <span class="text-eyebrow text-[var(--color-accent)]">
       {{ 'projects.eyebrow' | translate }}
@@ -16,50 +16,66 @@
       <article
         class="glass group flex flex-col rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-glass-strong)]"
       >
-        <header class="mb-4">
-          <h3 class="text-lg font-semibold leading-tight text-[var(--color-text)] sm:text-xl">
-            {{ project.title }}
-          </h3>
-        </header>
+        <a [routerLink]="['/projects', project.id]" class="flex flex-1 flex-col outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]">
+          <header class="mb-4">
+            <h3 class="text-lg font-semibold leading-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent)] sm:text-xl">
+              {{ project.title }}
+            </h3>
+          </header>
 
-        <p class="line-clamp-3 flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
-          {{ project.description }}
-        </p>
+          <p class="line-clamp-3 flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+            {{ project.description }}
+          </p>
 
-        @if (project.technologies.length) {
-          <ul class="mt-5 flex flex-wrap gap-1.5">
-            @for (tech of project.technologies; track tech) {
-              <li class="rounded-full border border-[var(--color-surface-glass-border)] bg-[var(--color-accent-soft)] px-2.5 py-0.5 text-xs font-medium text-[var(--color-text-muted)]">
-                {{ tech }}
-              </li>
-            }
-          </ul>
-        }
+          @if (project.technologies.length) {
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              @for (tech of project.technologies; track tech) {
+                <li class="rounded-full border border-[var(--color-surface-glass-border)] bg-[var(--color-accent-soft)] px-2.5 py-0.5 text-xs font-medium text-[var(--color-text-muted)]">
+                  {{ tech }}
+                </li>
+              }
+            </ul>
+          }
+        </a>
 
-        @if (project.url || project.repoUrl) {
-          <footer class="mt-6 flex flex-wrap gap-2 border-t border-[var(--color-surface-glass-border)] pt-4">
-            @if (project.url) {
-              <a
-                [href]="project.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex min-h-[36px] items-center rounded-full bg-[var(--color-accent)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-accent-fg)] transition-colors hover:bg-[var(--color-accent-hover)]"
-              >
-                {{ 'projects.demo' | translate }}
-              </a>
-            }
-            @if (project.repoUrl) {
-              <a
-                [href]="project.repoUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex min-h-[36px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
-              >
-                {{ 'projects.repo' | translate }}
-              </a>
-            }
-          </footer>
-        }
+        <footer class="mt-6 flex flex-wrap items-center gap-2 border-t border-[var(--color-surface-glass-border)] pt-4">
+          <a
+            [routerLink]="['/projects', project.id]"
+            class="inline-flex min-h-[36px] items-center rounded-full bg-[var(--color-accent)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-accent-fg)] transition-colors hover:bg-[var(--color-accent-hover)]"
+          >
+            {{ 'projects.viewDetails' | translate }}
+          </a>
+          @if (project.url) {
+            <a
+              [href]="project.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-[36px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
+            >
+              {{ 'projects.demo' | translate }}
+            </a>
+          }
+          @if (project.npmUrl) {
+            <a
+              [href]="project.npmUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-[36px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
+            >
+              {{ 'projects.npm' | translate }}
+            </a>
+          }
+          @if (project.repoUrl) {
+            <a
+              [href]="project.repoUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-[36px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
+            >
+              {{ 'projects.repo' | translate }}
+            </a>
+          }
+        </footer>
       </article>
     }
   </div>

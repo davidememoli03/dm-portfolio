@@ -1,22 +1,61 @@
 {
   "hero": {
-    "badge": "Available for projects",
+    "badge": "Full Stack Developer",
     "contact": "Get in touch",
     "viewProjects": "View projects"
   },
   "projects": {
     "eyebrow": "Selected work",
     "title": "Projects",
-    "subtitle": "A selection of the most recent work.",
+    "subtitle": "Open source and personal projects I've built.",
     "demo": "Demo",
-    "repo": "Repository"
+    "repo": "Repository",
+    "npm": "npm",
+    "viewDetails": "Details"
+  },
+  "projectDetail": {
+    "eyebrow": "Project",
+    "back": "Back to projects",
+    "highlights": "Highlights",
+    "notFound": "Project not found."
+  },
+  "arcadeUi": {
+    "galleryTitle": "Component gallery",
+    "installHint": "Import the global CSS, apply the ice-blue theme on your wrapper, and use arc-* classes in your markup. Angular directives handle theme, glitch, tabs, and sound."
   },
   "contact": {
-    "eyebrow": "Let's talk",
-    "title": "Let's build your next project",
-    "subtitle": "Have an idea to ship or just want to chat? I'm one email away.",
+    "eyebrow": "Let's connect",
+    "title": "Get in touch",
+    "subtitle": "Have a question or just want to say hello? Drop me a line below and I'll get back to you.",
     "github": "GitHub",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "What's your name?",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's on your mind? (optional)",
+      "message": "Message",
+      "messagePlaceholder": "Write your message...",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "successTitle": "Message sent!",
+      "successMessage": "Thanks for reaching out. I'll get back to you as soon as I can.",
+      "sendAnother": "Send another message",
+      "errorTitle": "Something went wrong",
+      "errorGeneric": "I couldn't send your message. Please try again in a moment.",
+      "errorRateLimit": "You've already sent too many messages. Please try again later.",
+      "errorValidation": "Please review the form and try again.",
+      "errors": {
+        "nameRequired": "Please enter your name",
+        "nameTooShort": "Name must be at least 2 characters",
+        "emailRequired": "Please enter your email",
+        "emailInvalid": "Please enter a valid email",
+        "messageRequired": "Please write your message",
+        "messageTooShort": "Message must be at least 10 characters"
+      }
+    }
   },
   "app": {
     "loading": "Loading the portfolio...",

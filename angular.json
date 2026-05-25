@@ -65,6 +65,16 @@
               {
                 "glob": "**/*",
                 "input": "projects/portfolio-app/public"
+              },
+              {
+                "glob": "arcade-ui.css",
+                "input": "node_modules/@davide03memoli/arcade-ui/dist",
+                "output": "vendor/arcade-ui"
+              },
+              {
+                "glob": "ice-blue.css",
+                "input": "node_modules/@davide03memoli/arcade-ui/dist/themes",
+                "output": "vendor/arcade-ui/themes"
               }
             ],
             "styles": [
@@ -124,6 +134,16 @@
               {
                 "glob": "**/*",
                 "input": "projects/portfolio-app/public"
+              },
+              {
+                "glob": "arcade-ui.css",
+                "input": "node_modules/@davide03memoli/arcade-ui/dist",
+                "output": "vendor/arcade-ui"
+              },
+              {
+                "glob": "ice-blue.css",
+                "input": "node_modules/@davide03memoli/arcade-ui/dist/themes",
+                "output": "vendor/arcade-ui/themes"
               }
             ],
             "styles": [
@@ -131,6 +151,71 @@
             ],
             "scripts": []
           }
+        }
+      }
+    },
+    "admin-app": {
+      "projectType": "application",
+      "root": "projects/admin-app",
+      "sourceRoot": "projects/admin-app/src",
+      "prefix": "admin",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/admin-app",
+            "index": "projects/admin-app/src/index.html",
+            "browser": "projects/admin-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/admin-app/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/admin-app/public"
+              }
+            ],
+            "styles": [
+              "projects/admin-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "admin-app:build:production"
+            },
+            "development": {
+              "buildTarget": "admin-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
         }
       }
     }

@@ -1,0 +1,143 @@
+app-arcade-ui-project {
+  display: block;
+  width: 100%;
+}
+
+app-arcade-ui-project .arcade-project-shell {
+  --panel-accent: var(--arc-color-cyan);
+  width: 100%;
+  padding-block: 1.5rem 2.5rem;
+  background-color: var(--arc-color-bg);
+  color: var(--arc-color-text);
+  font-family: var(--arc-font-body);
+  font-size: var(--arc-text-body-size);
+  line-height: var(--arc-text-body-lh);
+}
+
+app-arcade-ui-project .arcade-layout {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+app-arcade-ui-project .arcade-project-shell :is(.arc-panel, .arc-card, .arc-table-wrapper, .arc-tabs) {
+  width: 100%;
+  max-width: none;
+}
+
+app-arcade-ui-project .arcade-project-shell .arc-card {
+  width: 100%;
+}
+
+app-arcade-ui-project .arcade-project-shell .arc-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+app-arcade-ui-project .arcade-section-title {
+  margin-bottom: 0.75rem;
+  font-family: var(--arc-font-pixel);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--arc-color-cyan);
+}
+
+app-arcade-ui-project .arcade-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  app-arcade-ui-project .arcade-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+app-arcade-ui-project .arcade-gallery-wide {
+  grid-column: 1 / -1;
+}
+
+app-arcade-ui-project .arcade-kicker {
+  font-family: var(--arc-font-pixel);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--arc-color-cyan);
+}
+
+app-arcade-ui-project .arcade-title {
+  font-family: var(--arc-font-pixel);
+  font-size: clamp(0.85rem, 2.4vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--arc-color-text);
+}
+
+app-arcade-ui-project .arcade-body-copy {
+  color: var(--arc-color-text-muted);
+  font-family: var(--arc-font-terminal);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+app-arcade-ui-project .arcade-chip-row,
+app-arcade-ui-project .arcade-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+app-arcade-ui-project .arcade-install-code {
+  display: block;
+  font-family: var(--arc-font-mono, monospace);
+  font-size: 0.85rem;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+app-arcade-ui-project .arcade-project-shell :is(a.arc-btn, button.arc-btn) {
+  text-decoration: none;
+}
+
+app-arcade-ui-project .arcade-project-shell .arc-progress {
+  --arc-progress: 72%;
+}
+
+app-arcade-ui-project .arcade-tab-bar {
+  margin-bottom: 0;
+}
+
+app-arcade-ui-project .arcade-tab-bar .arc-tab {
+  flex: 1 1 0;
+}
+
+app-arcade-ui-project .arcade-tab-panel {
+  margin-top: 1rem;
+}
+
+/* Static background only — no CRT/stars animations */
+app-arcade-ui-project .arcade-project-shell.arc-bg-grid {
+  --arc-bg-opacity: 0.18;
+  --arc-bg-grid-cell: 24px;
+}
+
+app-arcade-ui-project .arcade-project-shell .arc-badge-pulse,
+app-arcade-ui-project .arcade-project-shell .arc-card-glow,
+app-arcade-ui-project .arcade-project-shell .arc-table-row-gold {
+  animation: none;
+}
+
+app-arcade-ui-project .arcade-project-shell .arc-table-row-gold .arc-table-td {
+  color: var(--arc-color-yellow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  app-arcade-ui-project .arcade-project-shell .arc-glitch {
+    animation: none;
+  }
+}

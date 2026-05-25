@@ -1,22 +1,61 @@
 {
   "hero": {
-    "badge": "Disponibile per progetti",
-    "contact": "Scrivimi",
+    "badge": "Sviluppatore Full Stack",
+    "contact": "Contattami",
     "viewProjects": "Vedi i progetti"
   },
   "projects": {
     "eyebrow": "Lavori selezionati",
     "title": "Progetti",
-    "subtitle": "Una selezione dei lavori piu' recenti.",
+    "subtitle": "Open source e progetti personali su cui sto lavorando.",
     "demo": "Demo",
-    "repo": "Repository"
+    "repo": "Repository",
+    "npm": "npm",
+    "viewDetails": "Dettagli"
+  },
+  "projectDetail": {
+    "eyebrow": "Progetto",
+    "back": "Torna ai progetti",
+    "highlights": "In evidenza",
+    "notFound": "Progetto non trovato."
+  },
+  "arcadeUi": {
+    "galleryTitle": "Component gallery",
+    "installHint": "Importa il CSS globale, applica il tema ice-blue sul wrapper e usa le classi arc-* nel markup. Le directive Angular gestiscono tema, glitch, tab e suoni."
   },
   "contact": {
     "eyebrow": "Mettiamoci in contatto",
-    "title": "Parliamo del tuo prossimo progetto",
-    "subtitle": "Hai un'idea da sviluppare o vuoi semplicemente confrontarti? Sono a un'email di distanza.",
+    "title": "Restiamo in contatto",
+    "subtitle": "Hai domande o vuoi semplicemente salutarmi? Compila il modulo qui sotto, ti rispondo io.",
     "github": "GitHub",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Come ti chiami?",
+      "email": "Email",
+      "emailPlaceholder": "nome@esempio.com",
+      "subject": "Oggetto",
+      "subjectPlaceholder": "Di cosa vuoi parlare? (opzionale)",
+      "message": "Messaggio",
+      "messagePlaceholder": "Scrivi il tuo messaggio...",
+      "submit": "Invia messaggio",
+      "submitting": "Invio in corso...",
+      "successTitle": "Messaggio inviato!",
+      "successMessage": "Grazie per avermi scritto. Ti rispondo il prima possibile.",
+      "sendAnother": "Invia un altro messaggio",
+      "errorTitle": "Qualcosa e' andato storto",
+      "errorGeneric": "Non sono riuscito a inviare il messaggio. Riprova tra qualche istante.",
+      "errorRateLimit": "Hai gia' inviato troppi messaggi. Riprova piu' tardi.",
+      "errorValidation": "Controlla i campi e riprova.",
+      "errors": {
+        "nameRequired": "Inserisci il tuo nome",
+        "nameTooShort": "Il nome deve avere almeno 2 caratteri",
+        "emailRequired": "Inserisci la tua email",
+        "emailInvalid": "Inserisci un'email valida",
+        "messageRequired": "Scrivi il messaggio",
+        "messageTooShort": "Il messaggio deve avere almeno 10 caratteri"
+      }
+    }
   },
   "app": {
     "loading": "Caricamento del portfolio...",

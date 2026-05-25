@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { ContactMessageInput, ContactMessageResponse } from '../models/contact.models';
 import { PortfolioProfile, PortfolioProject } from '../models/portfolio.models';
 
 @Injectable({ providedIn: 'root' })
@@ -27,6 +28,19 @@ export class PortfolioApiService {
   getProjects(): Observable<PortfolioProject[]> {
     return this.http.get<PortfolioProject[]>(`${this.apiBaseUrl}/projects`, {
       params: this.localeParams(),
+    });
+  }
+
+  getProject(id: string): Observable<PortfolioProject> {
+    return this.http.get<PortfolioProject>(`${this.apiBaseUrl}/projects/${id}`, {
+      params: this.localeParams(),
+    });
+  }
+
+  sendContact(payload: ContactMessageInput): Observable<ContactMessageResponse> {
+    return this.http.post<ContactMessageResponse>(`${this.apiBaseUrl}/contact`, {
+      ...payload,
+      locale: payload.locale ?? this.locale,
     });
   }
 

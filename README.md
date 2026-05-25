@@ -3,10 +3,11 @@
 Monorepo per un portfolio personale con:
 
 - **Angular 21** (`projects/portfolio-app`) — applicazione frontend
-- **[@davide03memoli/arcade-ui](https://www.npmjs.com/package/@davide03memoli/arcade-ui)** — design system arcade (CSS + directive Angular)
+- **Angular 21** (`projects/admin-app`) — pannello admin per gestione messaggi
 - **Libreria `dm-portfolio`** (`projects/dm-portfolio`) — componenti riutilizzabili
-- **Tailwind CSS 4** — styling
-- **Node.js 24 + Express 5** (`server/`) — API REST minimale
+- **Tailwind CSS 4** — styling con design tokens condivisi (`projects/shared-styles/tokens.css`)
+- **Node.js 22+ + Express 5** (`server/`) — API REST con auth admin + Postgres
+- **PostgreSQL 17** — persistenza messaggi di contatto
 - **Docker** — ambiente dev e produzione
 
 ## Struttura
@@ -15,12 +16,26 @@ Monorepo per un portfolio personale con:
 dm-portfolio/
 ├── projects/
 │   ├── dm-portfolio/      # libreria Angular
-│   └── portfolio-app/     # app portfolio
-├── server/                # backend Express
+│   ├── portfolio-app/     # app portfolio (porta 4200/8080)
+│   ├── admin-app/         # pannello admin (porta 4201/8081)
+│   └── shared-styles/     # tokens.css condiviso
+├── server/                # backend Express + Postgres
+├── db/                    # schema SQL Postgres
 ├── docker/                # Dockerfile e nginx
 ├── docker-compose.yml     # produzione
-└── docker-compose.dev.yml # sviluppo con hot reload
+├── docker-compose.dev.yml # sviluppo con hot reload
+└── .env.example           # variabili d'ambiente di riferimento
 ```
+
+## Setup iniziale (una tantum)
+
+1. Copia `.env.example` in `.env` nella root del progetto.
+2. Genera l'hash bcrypt della tua password admin:
+   ```bash
+   cd server && npm install && npm run hash-password -- 'la-tua-password'
+   ```
+   Copia l'output nella variabile `ADMIN_PASSWORD_HASH` del `.env`.
+3. Imposta `JWT_SECRET` con una stringa lunga e casuale.
 
 ## Avvio rapido (Docker)
 
@@ -30,8 +45,10 @@ dm-portfolio/
 docker compose -f docker-compose.dev.yml up --build
 ```
 
-- Frontend: http://localhost:4200
+- Portfolio: http://localhost:4200
+- Admin: http://localhost:4201
 - Backend API: http://localhost:3000/api/health
+- Postgres: localhost:5432
 
 ### Produzione
 
@@ -39,7 +56,8 @@ docker compose -f docker-compose.dev.yml up --build
 docker compose up --build
 ```
 
-- App completa (nginx + proxy API): http://localhost:8080
+- Portfolio: http://localhost:8080
+- Admin: http://localhost:8081
 
 ## Avvio locale (senza Docker)
 
@@ -58,13 +76,29 @@ npm start
 
 ## API
 
-| Endpoint          | Descrizione              |
-|-------------------|--------------------------|
-| `GET /api/health` | Health check             |
-| `GET /api/profile`| Profilo portfolio        |
-| `GET /api/projects` | Lista progetti         |
+### Pubblici
 
-I dati sono in `server/data/portfolio.json`.
+| Endpoint              | Descrizione                                      |
+|-----------------------|--------------------------------------------------|
+| `GET /api/health`     | Health check                                     |
+| `GET /api/profile`    | Profilo portfolio (i18n via `?lang=`)            |
+| `GET /api/projects`   | Lista progetti (i18n via `?lang=`)               |
+| `POST /api/contact`   | Invio messaggio contatto (rate limit + honeypot) |
+
+### Admin (richiede cookie JWT)
+
+| Endpoint                              | Descrizione                                          |
+|---------------------------------------|------------------------------------------------------|
+| `POST /api/admin/auth/login`          | Login admin (rate limit 10/15min)                    |
+| `POST /api/admin/auth/logout`         | Logout (clear cookie)                                |
+| `GET /api/admin/auth/me`              | Info admin loggato                                   |
+| `GET /api/admin/messages`             | Lista messaggi (filtro status/search, paginazione)   |
+| `GET /api/admin/messages/:id`         | Dettaglio (auto mark-read se status era `new`)       |
+| `PATCH /api/admin/messages/:id`       | Aggiorna status (`new`/`read`/`archived`/`spam`)     |
+| `DELETE /api/admin/messages/:id`      | Cancella definitivamente                             |
+
+I dati statici (profilo/progetti) sono in `server/data/portfolio.json`.
+I messaggi di contatto sono in Postgres (`messages` table).
 
 ## i18n
 
@@ -91,21 +125,17 @@ import { TranslateModule } from 'dm-portfolio';
 
 Lo switch IT/EN cambia lingua a runtime (preferenza salvata in `localStorage`). Il backend risponde con `?lang=it|en` per profilo e progetti.
 
-## Arcade UI
+## Design system
 
-La libreria [`@davide03memoli/arcade-ui`](https://www.npmjs.com/package/@davide03memoli/arcade-ui) e integrata globalmente:
+Stile **glassmorphism** con design tokens via CSS variables in `projects/shared-styles/tokens.css`:
 
-- CSS + tema `phosphor-green` in `projects/portfolio-app/src/styles.css`
-- Directive Angular (`arcadeTheme`, `arcadeSoundClick`, …) via `@davide03memoli/arcade-ui/angular`
-- Re-export da `dm-portfolio` per uso futuro nei componenti della libreria
+- Palette light/dark con fallback `prefers-color-scheme`
+- Override manuale via `[data-theme="light"|"dark"]` (toggle UI nel header)
+- Utility class: `.glass`, `.glass-strong`, `.aurora`, `.text-display`, `.text-headline`, `.text-eyebrow`
+- Animazioni rispettano `prefers-reduced-motion`
+- Font Inter via Google Fonts
 
-```typescript
-import { arcadeUiAngularImports, ArcadeAudioService } from 'dm-portfolio';
-// oppure direttamente:
-import { arcadeUiAngularImports } from '@davide03memoli/arcade-ui/angular';
-```
-
-Temi disponibili: `phosphor-green`, `amber-crt`, `magenta-wave`, `ice-blue`.
+Il file viene importato sia da `portfolio-app/src/styles.css` sia da `admin-app/src/styles.css`.
 
 ## Libreria dm-portfolio
 
@@ -135,10 +165,15 @@ npm run build:lib
 
 | Script | Descrizione |
 |--------|-------------|
-| `npm start` | Avvia Angular in dev |
-| `npm run build` | Build libreria + app |
+| `npm start` | Avvia portfolio-app in dev (porta 4200) |
+| `npm run start:admin` | Avvia admin-app in dev (porta 4201) |
+| `npm run build` | Build libreria + entrambe le app |
+| `npm run build:lib` | Solo libreria |
+| `npm run build:app` | Solo portfolio-app |
+| `npm run build:admin` | Solo admin-app |
 | `npm run server:dev` | Backend con `--watch` |
-| `npm run docker:dev` | Stack Docker dev |
+| `cd server && npm run hash-password -- 'pwd'` | Genera bcrypt hash per `ADMIN_PASSWORD_HASH` |
+| `npm run docker:dev` | Stack Docker dev (db + backend + portfolio + admin) |
 | `npm run docker:prod` | Stack Docker produzione |
 
 ## Licenza
