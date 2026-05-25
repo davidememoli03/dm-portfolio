@@ -13,6 +13,12 @@
     "npm": "npm",
     "viewDetails": "Dettagli"
   },
+  "experience": {
+    "eyebrow": "Esperienza",
+    "title": "Aziende",
+    "subtitle": "Dove ho maturato esperienza professionale in ambito IT.",
+    "visitWebsite": "Visita il sito"
+  },
   "projectDetail": {
     "eyebrow": "Progetto",
     "back": "Torna ai progetti",

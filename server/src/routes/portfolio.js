@@ -58,6 +58,17 @@ function localizeProjectDetail(project, locale) {
   };
 }
 
+function localizeExperience(entry, locale) {
+  return {
+    id: entry.id,
+    company: pickLocalized(entry.company, locale),
+    role: pickLocalized(entry.role, locale),
+    period: pickLocalized(entry.period, locale),
+    description: pickLocalized(entry.description, locale),
+    url: entry.url,
+  };
+}
+
 export const portfolioRouter = Router();
 
 portfolioRouter.get('/health', (_req, res) => {
@@ -74,6 +85,12 @@ portfolioRouter.get('/projects', (req, res) => {
   const locale = resolveLocale(req);
   const { projects } = loadPortfolioData();
   res.json(projects.map((project) => localizeProject(project, locale)));
+});
+
+portfolioRouter.get('/experience', (req, res) => {
+  const locale = resolveLocale(req);
+  const { experience = [] } = loadPortfolioData();
+  res.json(experience.map((entry) => localizeExperience(entry, locale)));
 });
 
 portfolioRouter.get('/projects/:id', (req, res) => {

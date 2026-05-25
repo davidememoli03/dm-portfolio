@@ -34,3 +34,12 @@ export interface PortfolioProject {
   npmUrl?: string;
   detail?: PortfolioProjectDetail;
 }
+
+export interface PortfolioExperience {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  url: string;
+}

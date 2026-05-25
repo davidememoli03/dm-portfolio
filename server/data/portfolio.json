@@ -122,5 +122,47 @@
         ]
       }
     }
+  ],
+  "experience": [
+    {
+      "id": "it-values",
+      "company": {
+        "it": "IT Values",
+        "en": "IT Values"
+      },
+      "role": {
+        "it": "Full Stack Developer",
+        "en": "Full Stack Developer"
+      },
+      "period": {
+        "it": "2023 · in corso",
+        "en": "2023 · present"
+      },
+      "description": {
+        "it": "Sviluppo end-to-end di soluzioni su misura per clienti enterprise e pubblica amministrazione: applicazioni web e API, integrazione tra sistemi eterogenei, servizi cloud e messa in produzione. Seguo l'intero ciclo di vita del software, con attenzione ad architettura, manutenibilità e requisiti di sicurezza del progetto.",
+        "en": "End-to-end development of tailored solutions for enterprise and public sector clients: web applications and APIs, integration across heterogeneous systems, cloud services, and production delivery. I cover the full software lifecycle, with a focus on architecture, maintainability, and each project's security requirements."
+      },
+      "url": "https://itvalues.it/"
+    },
+    {
+      "id": "iws-consulting",
+      "company": {
+        "it": "IWS Consulting",
+        "en": "IWS Consulting"
+      },
+      "role": {
+        "it": "Full Stack Developer",
+        "en": "Full Stack Developer"
+      },
+      "period": {
+        "it": "2023",
+        "en": "2023"
+      },
+      "description": {
+        "it": "Sviluppo di applicazioni web, consolidando le competenze full stack in un contesto di consulenza IT.",
+        "en": "Web application development, building full-stack skills in an IT consulting environment."
+      },
+      "url": "https://iwsconsulting.it/"
+    }
   ]
 }

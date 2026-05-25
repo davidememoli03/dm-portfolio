@@ -4,8 +4,10 @@ import { forkJoin } from 'rxjs';
 
 import {
   ContactSectionComponent,
+  ExperienceSectionComponent,
   HeroSectionComponent,
   PortfolioApiService,
+  PortfolioExperience,
   PortfolioProfile,
   PortfolioProject,
   ProjectsGridComponent,
@@ -16,6 +18,7 @@ import {
   imports: [
     TranslateModule,
     HeroSectionComponent,
+    ExperienceSectionComponent,
     ProjectsGridComponent,
     ContactSectionComponent,
   ],
@@ -33,6 +36,7 @@ import {
       </div>
     } @else if (profile()) {
       <dm-hero-section [profile]="profile()!" />
+      <dm-experience-section [experience]="experience()" />
       <dm-projects-grid [projects]="projects()" />
       <dm-contact-section [profile]="profile()!" />
     }
@@ -43,6 +47,7 @@ export class HomePage implements OnInit {
   private readonly translate = inject(TranslateService);
 
   readonly profile = signal<PortfolioProfile | null>(null);
+  readonly experience = signal<PortfolioExperience[]>([]);
   readonly projects = signal<PortfolioProject[]>([]);
   readonly loading = signal(true);
   readonly error = signal<string | null>(null);
@@ -58,10 +63,12 @@ export class HomePage implements OnInit {
 
     forkJoin({
       profile: this.portfolioApi.getProfile(),
+      experience: this.portfolioApi.getExperience(),
       projects: this.portfolioApi.getProjects(),
     }).subscribe({
-      next: ({ profile, projects }) => {
+      next: ({ profile, experience, projects }) => {
         this.profile.set(profile);
+        this.experience.set(experience);
         this.projects.set(projects);
         this.loading.set(false);
       },
