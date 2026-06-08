@@ -81,7 +81,7 @@ const PERIOD_OPTIONS = [7, 30, 90] as const;
           <article class="glass rounded-2xl p-5">
             <p class="text-xs font-medium uppercase tracking-wide text-[var(--color-text-subtle)]">Avg / day</p>
             <p class="mt-2 text-3xl font-semibold tabular-nums text-[var(--color-text)]">{{ avgViewsPerDay() }}</p>
-            <p class="mt-1 text-xs text-[var(--color-text-muted)]">Views per day</p>
+            <p class="mt-1 text-xs text-[var(--color-text-muted)]">On days with traffic</p>
           </article>
         </div>
 
@@ -237,8 +237,11 @@ export class AnalyticsPage implements OnInit {
 
   readonly avgViewsPerDay = computed(() => {
     const data = this.overview();
-    if (!data || data.periodDays === 0) return 0;
-    return Math.round((data.totals.views / data.periodDays) * 10) / 10;
+    if (!data || data.totals.views === 0) return 0;
+
+    const activeDays = data.viewsByDay.filter((row) => row.views > 0).length;
+    const divisor = Math.max(1, activeDays);
+    return Math.round((data.totals.views / divisor) * 10) / 10;
   });
 
   readonly deviceRows = computed(() => {
