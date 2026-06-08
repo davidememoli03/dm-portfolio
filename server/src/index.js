@@ -14,7 +14,8 @@ import { portfolioRouter } from './routes/portfolio.js';
 
 const app = express();
 
-app.set('trust proxy', 1);
+// Caddy + nginx in Docker: trust X-Forwarded-For from reverse proxies.
+app.set('trust proxy', true);
 
 const corsOrigins = process.env.CORS_ORIGINS
   ?.split(',')

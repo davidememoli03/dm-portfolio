@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { rateLimit } from 'express-rate-limit';
 
 import { query } from '../db.js';
+import { getClientIp } from '../lib/client-ip.js';
 import { resolveGeo } from '../lib/geoip.js';
 import { detectDevice } from '../lib/user-agent.js';
 import { pageViewSchema } from '../lib/validation.js';
@@ -19,7 +20,7 @@ export const analyticsRouter = Router();
 analyticsRouter.post('/pageview', pageViewLimiter, async (req, res, next) => {
   try {
     const parsed = pageViewSchema.parse(req.body ?? {});
-    const ipAddress = req.ip ?? null;
+    const ipAddress = getClientIp(req);
     const userAgent = req.headers['user-agent']?.slice(0, 1000) ?? null;
     const geo = resolveGeo(ipAddress);
     const deviceType = detectDevice(userAgent);

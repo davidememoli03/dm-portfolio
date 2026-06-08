@@ -11,10 +11,11 @@ export interface ChartSegment {
 
 export function buildLinePath(points: ChartPoint[], width: number, height: number, padding = 2): string {
   if (points.length === 0) return '';
-  const max = Math.max(1, ...points.map((p) => p.value));
-  const step = points.length <= 1 ? 0 : (width - padding * 2) / (points.length - 1);
+  const series = points.length === 1 ? [points[0], points[0]] : points;
+  const max = Math.max(1, ...series.map((p) => p.value));
+  const step = series.length <= 1 ? 0 : (width - padding * 2) / (series.length - 1);
 
-  return points
+  return series
     .map((point, index) => {
       const x = padding + step * index;
       const y = height - padding - (point.value / max) * (height - padding * 2);
@@ -25,8 +26,9 @@ export function buildLinePath(points: ChartPoint[], width: number, height: numbe
 
 export function buildAreaPath(points: ChartPoint[], width: number, height: number, padding = 2): string {
   if (points.length === 0) return '';
-  const line = buildLinePath(points, width, height, padding);
-  const lastX = padding + (points.length <= 1 ? 0 : (width - padding * 2));
+  const series = points.length === 1 ? [points[0], points[0]] : points;
+  const line = buildLinePath(series, width, height, padding);
+  const lastX = padding + (series.length <= 1 ? 0 : width - padding * 2);
   return `${line} L ${lastX} ${height - padding} L ${padding} ${height - padding} Z`;
 }
 

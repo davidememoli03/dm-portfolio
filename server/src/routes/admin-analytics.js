@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { query } from '../db.js';
+import { fillDaySeries } from '../lib/analytics-series.js';
 import { countryLabel } from '../lib/geoip.js';
 import { normalizeReferrer } from '../lib/user-agent.js';
 import { analyticsOverviewQuerySchema } from '../lib/validation.js';
@@ -112,10 +113,10 @@ adminAnalyticsRouter.get('/overview', async (req, res, next) => {
         views: todayRow.views,
         sessions: todayRow.sessions,
       },
-      viewsByDay: byDay.rows.map((row) => ({
-        day: row.day,
-        views: row.views,
-        sessions: row.sessions,
+      viewsByDay: fillDaySeries(byDay.rows, days, (day, row) => ({
+        day,
+        views: row?.views ?? 0,
+        sessions: row?.sessions ?? 0,
       })),
       topCountries: byCountry.rows.map((row) => ({
         country: row.country === 'ZZ' ? null : row.country,

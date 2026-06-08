@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { query } from '../db.js';
+import { fillDaySeries } from '../lib/analytics-series.js';
 import { countryLabel } from '../lib/geoip.js';
 import { analyticsOverviewQuerySchema } from '../lib/validation.js';
 import { requireAdmin } from '../middleware/auth.js';
@@ -109,7 +110,10 @@ adminDashboardRouter.get('/overview', async (req, res, next) => {
         byStatus: statusCounts,
         total: Object.values(statusCounts).reduce((sum, count) => sum + count, 0),
         today: messagesTodayRow.count,
-        byDay: messagesByDay.rows.map((row) => ({ day: row.day, count: row.count })),
+        byDay: fillDaySeries(messagesByDay.rows, days, (day, row) => ({
+          day,
+          count: row?.count ?? 0,
+        })),
         recent: recentMessages.rows.map((row) => ({
           id: row.id,
           name: row.name,
@@ -122,10 +126,10 @@ adminDashboardRouter.get('/overview', async (req, res, next) => {
       traffic: {
         totals: { views: viewsRow.views, sessions: viewsRow.sessions },
         today: { views: viewsTodayRow.views, sessions: viewsTodayRow.sessions },
-        byDay: viewsByDay.rows.map((row) => ({
-          day: row.day,
-          views: row.views,
-          sessions: row.sessions,
+        byDay: fillDaySeries(viewsByDay.rows, days, (day, row) => ({
+          day,
+          views: row?.views ?? 0,
+          sessions: row?.sessions ?? 0,
         })),
         topCountries: topCountries.rows.map((row) => ({
           country: row.country === 'ZZ' ? null : row.country,

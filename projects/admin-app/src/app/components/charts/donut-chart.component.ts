@@ -16,8 +16,7 @@ import { ChartSegment } from './chart.utils';
               cy="21"
               r="15.915"
               fill="transparent"
-              stroke="var(--color-surface-glass-border)"
-              stroke-width="4"
+              style="stroke: var(--color-surface-glass-border); stroke-width: 4"
             />
             @for (slice of slices(); track slice.label) {
               <circle

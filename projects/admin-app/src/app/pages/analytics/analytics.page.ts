@@ -2,13 +2,15 @@ import { DatePipe } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 
 import { AdminApiService } from '../../api/admin-api.service';
+import { LineAreaChartComponent } from '../../components/charts/line-area-chart.component';
+import { ChartPoint } from '../../components/charts/chart.utils';
 import { AnalyticsOverview } from '../../models/analytics.models';
 
 const PERIOD_OPTIONS = [7, 30, 90] as const;
 
 @Component({
   selector: 'admin-analytics-page',
-  imports: [DatePipe],
+  imports: [DatePipe, LineAreaChartComponent],
   template: `
     <section class="py-8">
       <header class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -84,22 +86,8 @@ const PERIOD_OPTIONS = [7, 30, 90] as const;
         <div class="mt-6 grid gap-6 lg:grid-cols-5">
           <article class="glass rounded-2xl p-5 lg:col-span-3">
             <h2 class="text-sm font-semibold text-[var(--color-text)]">Daily views</h2>
-            @if (data.viewsByDay.length === 0) {
-              <p class="mt-6 text-sm text-[var(--color-text-muted)]">No visits recorded yet.</p>
-            } @else {
-              <div class="mt-6 flex h-40 items-end gap-1 overflow-x-auto pb-1">
-                @for (point of data.viewsByDay; track point.day) {
-                  <div class="flex min-w-[2rem] flex-1 flex-col items-center gap-2">
-                    <div
-                      class="w-full rounded-t-md bg-[var(--color-accent)] transition-all"
-                      [style.height.%]="barHeight(point.views)"
-                      [title]="point.day + ': ' + point.views + ' views'"
-                    ></div>
-                    <span class="text-[10px] text-[var(--color-text-subtle)]">{{ shortDay(point.day) }}</span>
-                  </div>
-                }
-              </div>
-            }
+            <p class="mb-4 text-xs text-[var(--color-text-muted)]">Page views per day</p>
+            <admin-line-area-chart [points]="dailyViewPoints()" ariaLabel="Daily page views chart" />
           </article>
 
           <article class="glass rounded-2xl p-5 lg:col-span-2">
@@ -223,9 +211,9 @@ export class AnalyticsPage implements OnInit {
   readonly errored = signal(false);
   readonly overview = signal<AnalyticsOverview | null>(null);
 
-  private readonly maxDailyViews = computed(() => {
+  readonly dailyViewPoints = computed<ChartPoint[]>(() => {
     const rows = this.overview()?.viewsByDay ?? [];
-    return Math.max(1, ...rows.map((row) => row.views));
+    return rows.map((row) => ({ label: row.day, value: row.views }));
   });
 
   readonly avgViewsPerDay = computed(() => {
@@ -268,18 +256,9 @@ export class AnalyticsPage implements OnInit {
     });
   }
 
-  barHeight(views: number): number {
-    return Math.max(8, (views / this.maxDailyViews()) * 100);
-  }
-
   devicePercent(count: number): number {
     const total = this.deviceRows().reduce((sum, row) => sum + row.count, 0);
     if (total === 0) return 0;
     return (count / total) * 100;
-  }
-
-  shortDay(day: string): string {
-    const [, month, date] = day.split('-');
-    return `${date}/${month}`;
   }
 }

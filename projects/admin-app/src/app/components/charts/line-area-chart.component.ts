@@ -22,27 +22,24 @@ import { buildAreaPath, buildLinePath, ChartPoint, shortDayLabel } from './chart
               [attr.x2]="width - 2"
               [attr.y1]="tick"
               [attr.y2]="tick"
-              stroke="var(--color-surface-glass-border)"
-              stroke-width="0.5"
+              style="stroke: var(--color-surface-glass-border); stroke-width: 0.5"
               vector-effect="non-scaling-stroke"
             />
           }
           @if (areaPath()) {
-            <path [attr.d]="areaPath()" fill="var(--color-accent-soft)" />
+            <path [attr.d]="areaPath()" style="fill: var(--color-accent-soft)" />
             <path
               [attr.d]="linePath()"
-              fill="none"
-              stroke="var(--color-accent)"
-              stroke-width="1.5"
+              style="fill: none; stroke: var(--color-accent); stroke-width: 1.5"
               vector-effect="non-scaling-stroke"
             />
           }
-          @for (dot of dotPoints(); track dot.label) {
+          @for (dot of dotPoints(); track dot.label + dot.x) {
             <circle
               [attr.cx]="dot.x"
               [attr.cy]="dot.y"
               r="1.8"
-              fill="var(--color-accent)"
+              style="fill: var(--color-accent)"
               vector-effect="non-scaling-stroke"
             />
           }

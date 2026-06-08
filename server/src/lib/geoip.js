@@ -17,9 +17,11 @@ export function resolveGeo(ip) {
   };
 }
 
-function isPrivateIp(ip) {
+export function isPrivateIp(ip) {
+  if (!ip) return true;
   if (ip === '::1' || ip === '127.0.0.1') return true;
-  if (ip.startsWith('10.') || ip.startsWith('192.168.') || ip.startsWith('172.')) return true;
+  if (ip.startsWith('10.') || ip.startsWith('192.168.')) return true;
+  if (/^172\.(1[6-9]|2\d|3[01])\./.test(ip)) return true;
   if (ip.startsWith('fc') || ip.startsWith('fd') || ip.startsWith('fe80')) return true;
   return false;
 }
