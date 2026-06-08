@@ -8,7 +8,14 @@ import { ChartPoint } from './chart.utils';
     @if (points().length === 0) {
       <p class="text-sm text-[var(--color-text-muted)]">No data for this period.</p>
     } @else {
-      <ul class="space-y-3" role="list">
+      <ul
+        class="space-y-3"
+        role="list"
+        [class.overflow-y-auto]="maxVisibleRows() !== undefined"
+        [class.overscroll-y-contain]="maxVisibleRows() !== undefined"
+        [class.pr-1]="maxVisibleRows() !== undefined"
+        [style.max-height]="scrollMaxHeight()"
+      >
         @for (point of points(); track point.label) {
           <li>
             <div class="mb-1 flex items-center justify-between gap-3 text-xs">
@@ -31,8 +38,16 @@ import { ChartPoint } from './chart.utils';
 export class BarChartComponent {
   readonly points = input.required<ChartPoint[]>();
   readonly barColor = input('var(--color-accent)');
+  /** When set, the list scrolls after this many rows (~2.75rem each). */
+  readonly maxVisibleRows = input<number | undefined>(undefined);
 
   private readonly maxValue = computed(() => Math.max(1, ...this.points().map((p) => p.value)));
+
+  protected scrollMaxHeight(): string | null {
+    const maxRows = this.maxVisibleRows();
+    if (maxRows === undefined) return null;
+    return `${maxRows * 2.75}rem`;
+  }
 
   protected barWidth(value: number): number {
     return (value / this.maxValue()) * 100;

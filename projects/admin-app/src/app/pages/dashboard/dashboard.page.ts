@@ -6,7 +6,7 @@ import { AdminApiService } from '../../api/admin-api.service';
 import { BarChartComponent } from '../../components/charts/bar-chart.component';
 import { DonutChartComponent } from '../../components/charts/donut-chart.component';
 import { LineAreaChartComponent } from '../../components/charts/line-area-chart.component';
-import { ChartPoint, ChartSegment } from '../../components/charts/chart.utils';
+import { ChartPoint, ChartSegment, shortDayLabel } from '../../components/charts/chart.utils';
 import { DashboardOverview } from '../../models/dashboard.models';
 import { MessageStatus } from '../../models/message.models';
 
@@ -152,7 +152,7 @@ const DEVICE_COLORS: Record<string, string> = {
           <article class="glass rounded-2xl p-5">
             <h2 class="text-sm font-semibold text-[var(--color-text)]">Incoming messages</h2>
             <p class="mb-4 text-xs text-[var(--color-text-muted)]">Messages per day</p>
-            <admin-bar-chart [points]="messagePoints()" barColor="var(--color-accent)" />
+            <admin-bar-chart [points]="messagePoints()" [maxVisibleRows]="10" barColor="var(--color-accent)" />
           </article>
 
           <article class="glass rounded-2xl p-5">
@@ -238,7 +238,7 @@ export class DashboardPage implements OnInit {
 
   readonly messagePoints = computed<ChartPoint[]>(() => {
     const rows = this.data()?.messages.byDay ?? [];
-    return rows.map((row) => ({ label: row.day, value: row.count }));
+    return rows.map((row) => ({ label: shortDayLabel(row.day), value: row.count }));
   });
 
   readonly messageSegments = computed<ChartSegment[]>(() => {
