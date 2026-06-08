@@ -9,6 +9,7 @@
     "start:admin:docker": "ng serve admin-app --host 0.0.0.0 --port 4201 --poll 2000 --disable-host-check --proxy-config projects/admin-app/proxy.conf.docker.json",
     "build:lib": "ng build dm-portfolio",
     "build:app": "ng build portfolio-app --configuration=production",
+    "build:pages": "npm run build:lib && ng build portfolio-app --configuration=github-pages",
     "build:admin": "ng build admin-app --configuration=production",
     "build": "npm run build:lib && npm run build:app && npm run build:admin",
     "watch": "ng build portfolio-app --watch --configuration development",
