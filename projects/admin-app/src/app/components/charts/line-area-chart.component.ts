@@ -38,9 +38,8 @@ import { buildAreaPath, buildLinePath, ChartPoint, shortDayLabel } from './chart
             <circle
               [attr.cx]="dot.x"
               [attr.cy]="dot.y"
-              r="1.8"
+              r="0.65"
               style="fill: var(--color-accent)"
-              vector-effect="non-scaling-stroke"
             />
           }
         </svg>

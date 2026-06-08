@@ -152,7 +152,7 @@ const DEVICE_COLORS: Record<string, string> = {
           <article class="glass rounded-2xl p-5">
             <h2 class="text-sm font-semibold text-[var(--color-text)]">Incoming messages</h2>
             <p class="mb-4 text-xs text-[var(--color-text-muted)]">Messages per day</p>
-            <admin-bar-chart [points]="messagePoints()" [maxVisibleRows]="10" barColor="var(--color-accent)" />
+            <admin-bar-chart [points]="messagePoints()" [pageSize]="10" barColor="var(--color-accent)" />
           </article>
 
           <article class="glass rounded-2xl p-5">
@@ -238,7 +238,7 @@ export class DashboardPage implements OnInit {
 
   readonly messagePoints = computed<ChartPoint[]>(() => {
     const rows = this.data()?.messages.byDay ?? [];
-    return rows.map((row) => ({ label: shortDayLabel(row.day), value: row.count }));
+    return [...rows].reverse().map((row) => ({ label: shortDayLabel(row.day), value: row.count }));
   });
 
   readonly messageSegments = computed<ChartSegment[]>(() => {

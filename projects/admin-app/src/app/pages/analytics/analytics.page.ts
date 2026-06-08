@@ -4,13 +4,15 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { AdminApiService } from '../../api/admin-api.service';
 import { LineAreaChartComponent } from '../../components/charts/line-area-chart.component';
 import { ChartPoint } from '../../components/charts/chart.utils';
+import { ListPaginationComponent } from '../../components/list-pagination/list-pagination.component';
+import { LIST_PAGE_SIZE, paginateSlice, totalPages } from '../../components/list-pagination/pagination.utils';
 import { AnalyticsOverview } from '../../models/analytics.models';
 
 const PERIOD_OPTIONS = [7, 30, 90] as const;
 
 @Component({
   selector: 'admin-analytics-page',
-  imports: [DatePipe, LineAreaChartComponent],
+  imports: [DatePipe, LineAreaChartComponent, ListPaginationComponent],
   template: `
     <section class="py-8">
       <header class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -180,7 +182,7 @@ const PERIOD_OPTIONS = [7, 30, 90] as const;
                   </tr>
                 </thead>
                 <tbody>
-                  @for (visit of data.recentViews; track visit.sessionId + visit.createdAt) {
+                  @for (visit of paginatedRecentViews(); track visit.sessionId + visit.createdAt) {
                     <tr class="border-t border-[var(--color-surface-glass-border)]">
                       <td class="whitespace-nowrap px-5 py-3 text-[var(--color-text-muted)]">
                         {{ visit.createdAt | date: 'dd/MM HH:mm' }}
@@ -196,6 +198,11 @@ const PERIOD_OPTIONS = [7, 30, 90] as const;
                 </tbody>
               </table>
             </div>
+            <admin-list-pagination
+              [page]="visitsPage()"
+              [totalPages]="visitsTotalPages()"
+              (pageChange)="visitsPage.set($event)"
+            />
           }
         </article>
       }
@@ -210,6 +217,18 @@ export class AnalyticsPage implements OnInit {
   readonly loading = signal(true);
   readonly errored = signal(false);
   readonly overview = signal<AnalyticsOverview | null>(null);
+  readonly visitsPage = signal(1);
+  readonly visitsPageSize = LIST_PAGE_SIZE;
+
+  readonly paginatedRecentViews = computed(() => {
+    const visits = this.overview()?.recentViews ?? [];
+    return paginateSlice(visits, this.visitsPage(), this.visitsPageSize);
+  });
+
+  readonly visitsTotalPages = computed(() => {
+    const visits = this.overview()?.recentViews ?? [];
+    return totalPages(visits.length, this.visitsPageSize);
+  });
 
   readonly dailyViewPoints = computed<ChartPoint[]>(() => {
     const rows = this.overview()?.viewsByDay ?? [];
@@ -237,6 +256,7 @@ export class AnalyticsPage implements OnInit {
 
   setDays(days: number): void {
     this.days.set(days);
+    this.visitsPage.set(1);
     this.load();
   }
 
@@ -247,6 +267,7 @@ export class AnalyticsPage implements OnInit {
     this.api.getAnalyticsOverview(this.days()).subscribe({
       next: (data) => {
         this.overview.set(data);
+        this.visitsPage.set(1);
         this.loading.set(false);
       },
       error: () => {
