@@ -65,9 +65,17 @@ command -v curl >/dev/null 2>&1 || die "curl not found"
 
 [[ -f .env ]] || die ".env missing — copy .env.example and configure it first"
 
+has_meaningful_changes() {
+  [[ -n "$(git status --porcelain -- . \
+    ':(exclude)node_modules' \
+    ':(exclude)server/node_modules' \
+    ':(exclude).angular' \
+    ':(exclude)dist')" ]]
+}
+
 if ! $SKIP_PULL; then
   if [[ -d .git ]]; then
-    if ! git diff --quiet || ! git diff --cached --quiet; then
+    if has_meaningful_changes; then
       die "Working tree has uncommitted changes — commit, stash, or use --no-pull"
     fi
     log "Pulling latest code (git pull --ff-only)..."
