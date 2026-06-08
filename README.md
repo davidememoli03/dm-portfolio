@@ -59,36 +59,6 @@ docker compose up --build
 - Portfolio: http://localhost:8080
 - Admin: http://localhost:8081
 
-## Pubblicazione su GitHub Pages
-
-Il workflow [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) pubblica **solo il frontend** (`portfolio-app`) su push su `main`.
-
-### Setup (una tantum su GitHub)
-
-1. **Settings → Pages → Build and deployment**
-   - Source: **GitHub Actions**
-2. Push su `main` oppure avvia manualmente il workflow **Deploy portfolio to GitHub Pages** (tab Actions).
-
-### URL
-
-- Progetto: `https://davidememoli03.github.io/dm-portfolio/`
-- Build con `baseHref` `/dm-portfolio/` (config `github-pages` in `angular.json`)
-
-### Build locale (anteprima)
-
-```bash
-npm run build:pages
-npx serve dist/portfolio-app/browser -l 5000
-```
-
-Apri http://localhost:5000/dm-portfolio/
-
-### Note
-
-- GitHub Pages serve **solo file statici**: le chiamate a `/api` non funzionano senza un backend esterno.
-- Per SPA routing è incluso `404.html` (copia di `index.html`) nel workflow.
-- Se rinomini il repository, aggiorna `baseHref` / `deployUrl` in `angular.json` → `portfolio-app` → `configurations.github-pages`.
-
 ## Avvio locale (senza Docker)
 
 ```bash
