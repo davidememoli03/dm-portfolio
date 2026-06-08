@@ -20,7 +20,8 @@
     "docker:dev": "docker compose -f docker-compose.dev.yml up --build",
     "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
     "docker:prod": "docker compose up --build",
-    "docker:prod:down": "docker compose down"
+    "docker:prod:down": "docker compose down",
+    "deploy": "bash scripts/deploy.sh"
   },
   "private": true,
   "dependencies": {

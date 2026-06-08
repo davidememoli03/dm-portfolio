@@ -59,6 +59,25 @@ docker compose up --build
 - Portfolio: http://localhost:8080
 - Admin: http://localhost:8081
 
+### Deploy su VPS (dopo push su git)
+
+Sul server, dalla root del repo (es. `/home/ubuntu/dm-portfolio`):
+
+```bash
+./scripts/deploy.sh
+# oppure
+npm run deploy
+```
+
+Lo script esegue `git pull --ff-only`, ricostruisce i container con `docker compose up -d --build` e verifica `GET /api/health`.
+
+Opzioni utili:
+
+| Flag | Descrizione |
+|------|-------------|
+| `--no-pull` | Salta il pull git (deploy della copia locale) |
+| `--prune` | Rimuove immagini Docker inutilizzate dopo il deploy |
+
 ## Avvio locale (senza Docker)
 
 ```bash
