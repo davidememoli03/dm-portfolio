@@ -6,8 +6,7 @@
   </a>
 
   <header class="glass mb-8 rounded-2xl p-6 sm:p-8">
-    <span class="text-eyebrow text-[var(--color-accent)]">{{ 'projectDetail.eyebrow' | translate }}</span>
-    <h1 class="text-headline mt-3 text-[var(--color-text)]">{{ project().title }}</h1>
+    <h1 class="text-headline text-[var(--color-text)]">{{ project().title }}</h1>
     @if (project().detail?.tagline) {
     <p class="mt-3 text-lg font-medium text-[var(--color-text-muted)]">
       {{ project().detail!.tagline }}

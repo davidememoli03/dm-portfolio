@@ -1,31 +1,26 @@
 {
   "hero": {
-    "badge": "Full Stack Developer",
     "contact": "Get in touch",
     "viewProjects": "View projects"
   },
   "projects": {
-    "eyebrow": "Selected work",
     "title": "Projects",
-    "subtitle": "Open source and personal projects I've built.",
+    "subtitle": "Open source and personal work.",
     "demo": "Demo",
     "repo": "Repository",
     "npm": "npm",
     "viewDetails": "Details"
   },
   "experience": {
-    "eyebrow": "Experience",
-    "title": "Companies",
-    "subtitle": "Where I've gained professional IT experience.",
+    "title": "Experience",
+    "subtitle": "Professional background in IT.",
     "visitWebsite": "Visit website"
   },
   "skills": {
-    "eyebrow": "Stack",
     "title": "Skills",
-    "subtitle": "Languages, tools, and domains I work in or have worked with."
+    "subtitle": "Languages, tools, and domains I work in."
   },
   "projectDetail": {
-    "eyebrow": "Project",
     "back": "Back to projects",
     "highlights": "Highlights",
     "notFound": "Project not found."
@@ -35,9 +30,8 @@
     "installHint": "Import the global CSS, apply the ice-blue theme on your wrapper, and use arc-* classes in your markup. Angular directives handle theme, glitch, tabs, and sound."
   },
   "contact": {
-    "eyebrow": "Let's connect",
     "title": "Get in touch",
-    "subtitle": "Have a question or just want to say hello? Drop me a line below and I'll get back to you.",
+    "subtitle": "Questions, collaborations, or just a hello — drop me a line below.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "form": {

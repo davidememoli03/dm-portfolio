@@ -10,11 +10,15 @@
     </div>
     }
 
-    <div class="mb-6 flex flex-wrap items-center justify-center gap-2">
+    <h1 class="text-display text-[var(--color-text)]">
+      {{ profile().name }}
+    </h1>
+
+    <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
       <span
         class="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
         <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-        {{ 'hero.badge' | translate }}
+        {{ profile().title }}
       </span>
       @if (profile().location) {
       <span class="glass inline-flex items-center rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
@@ -22,14 +26,6 @@
       </span>
       }
     </div>
-
-    <h1 class="text-display text-[var(--color-text)]">
-      {{ profile().name }}
-    </h1>
-
-    <p class="mx-auto mt-5 max-w-xl text-lg font-medium text-[var(--color-text-muted)] sm:text-xl">
-      {{ profile().title }}
-    </p>
 
     <p class="mx-auto mt-6 max-w-prose text-base leading-relaxed text-[var(--color-text-muted)] sm:text-lg">
       {{ profile().bio }}

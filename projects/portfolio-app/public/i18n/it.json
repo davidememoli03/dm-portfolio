@@ -1,43 +1,37 @@
 {
   "hero": {
-    "badge": "Sviluppatore Full Stack",
     "contact": "Contattami",
     "viewProjects": "Vedi i progetti"
   },
   "projects": {
-    "eyebrow": "Lavori selezionati",
     "title": "Progetti",
-    "subtitle": "Open source e progetti personali su cui sto lavorando.",
+    "subtitle": "Open source e lavori personali.",
     "demo": "Demo",
     "repo": "Repository",
     "npm": "npm",
     "viewDetails": "Dettagli"
   },
   "experience": {
-    "eyebrow": "Esperienza",
-    "title": "Aziende",
-    "subtitle": "Dove ho maturato esperienza professionale in ambito IT.",
+    "title": "Esperienza",
+    "subtitle": "Percorso professionale in ambito IT.",
     "visitWebsite": "Visita il sito"
   },
   "skills": {
-    "eyebrow": "Stack",
     "title": "Competenze",
-    "subtitle": "Linguaggi, strumenti e ambiti in cui lavoro o ho lavorato."
+    "subtitle": "Linguaggi, strumenti e ambiti in cui lavoro."
   },
   "projectDetail": {
-    "eyebrow": "Progetto",
     "back": "Torna ai progetti",
     "highlights": "In evidenza",
     "notFound": "Progetto non trovato."
   },
   "arcadeUi": {
-    "galleryTitle": "Component gallery",
+    "galleryTitle": "Galleria componenti",
     "installHint": "Importa il CSS globale, applica il tema ice-blue sul wrapper e usa le classi arc-* nel markup. Le directive Angular gestiscono tema, glitch, tab e suoni."
   },
   "contact": {
-    "eyebrow": "Mettiamoci in contatto",
-    "title": "Restiamo in contatto",
-    "subtitle": "Hai domande o vuoi semplicemente salutarmi? Compila il modulo qui sotto, ti rispondo io.",
+    "title": "Contattami",
+    "subtitle": "Domande, collaborazioni o un semplice saluto: scrivimi qui sotto.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "form": {
