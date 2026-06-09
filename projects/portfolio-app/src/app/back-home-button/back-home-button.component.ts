@@ -35,15 +35,15 @@ const SCROLL_THRESHOLD_PX = 240;
     `
       :host {
         position: fixed;
-        right: 1rem;
+        left: 50%;
         bottom: 1.5rem;
         z-index: 50;
         pointer-events: none;
+        transform: translateX(-50%);
       }
 
       @media (min-width: 640px) {
         :host {
-          right: 1.5rem;
           bottom: 2rem;
         }
       }
