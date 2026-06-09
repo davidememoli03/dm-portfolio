@@ -29,10 +29,9 @@
         "en": "80s arcade CSS and Angular design system: neon visuals, CRT effects, synth audio, and 80+ components with zero runtime dependencies."
       },
       "technologies": [
-        "TypeScript",
+        "JavaScript",
         "CSS",
-        "Web Audio",
-        "Angular"
+        "HTML"
       ],
       "npmUrl": "https://www.npmjs.com/package/@davide03memoli/arcade-ui",
       "url": "https://arcade.dev-memoli.it/",
