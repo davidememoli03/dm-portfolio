@@ -41,6 +41,8 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "form": {
+      "identityLegend": "Who you are",
+      "messageLegend": "Your message",
       "name": "Name",
       "namePlaceholder": "What's your name?",
       "email": "Email",

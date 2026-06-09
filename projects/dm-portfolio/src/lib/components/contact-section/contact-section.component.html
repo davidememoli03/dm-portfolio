@@ -1,9 +1,21 @@
-<section id="contact" class="scroll-mt-20 py-10 sm:py-14" dmScrollReveal>
-  <div class="contact-shell glass-strong mx-auto max-w-3xl rounded-2xl p-5 sm:p-7 lg:p-8">
+<section id="contact" class="content-wrap scroll-mt-24 py-12 sm:py-16" dmScrollReveal>
+  <header class="mx-auto mb-8 max-w-xl text-center sm:mb-10">
+    <span class="text-eyebrow text-[var(--color-accent)]">
+      {{ 'contact.eyebrow' | translate }}
+    </span>
+    <h2 class="text-headline mt-3 text-[var(--color-text)]">
+      {{ 'contact.title' | translate }}
+    </h2>
+    <p class="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] sm:text-lg">
+      {{ 'contact.subtitle' | translate }}
+    </p>
+  </header>
+
+  <div class="contact-card glass-strong mx-auto max-w-2xl rounded-3xl p-6 sm:p-8">
     @if (succeeded()) {
-    <div class="text-center" role="status" aria-live="polite">
+    <div class="py-4 text-center" role="status" aria-live="polite">
       <div
-        class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-[var(--color-accent)]">
+        class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-[var(--color-accent)]">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7" aria-hidden="true">
           <path d="M20 6 9 17l-5-5" />
@@ -12,128 +24,110 @@
       <h3 class="text-xl font-semibold text-[var(--color-text)]">
         {{ 'contact.form.successTitle' | translate }}
       </h3>
-      <p class="mx-auto mt-2 max-w-sm text-sm text-[var(--color-text-muted)]">
+      <p class="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-[var(--color-text-muted)]">
         {{ 'contact.form.successMessage' | translate }}
       </p>
       <button type="button" (click)="reset()"
-        class="mt-5 inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+        class="mt-6 inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
         {{ 'contact.form.sendAnother' | translate }}
       </button>
     </div>
     } @else {
-    <div class="contact-layout">
-      <header class="contact-header text-center lg:text-left">
-        <span class="text-eyebrow text-[var(--color-accent)]">
-          {{ 'contact.eyebrow' | translate }}
-        </span>
-        <h2 class="text-headline mt-2 text-[var(--color-text)]">
-          {{ 'contact.title' | translate }}
-        </h2>
-        <p class="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-muted)] sm:text-base lg:mx-0">
-          {{ 'contact.subtitle' | translate }}
-        </p>
-
-        @if (profile().github || profile().linkedin) {
-        <div
-          class="contact-social contact-social--inline mt-4 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-          @if (profile().github) {
-          <a [href]="profile().github" target="_blank" rel="noopener noreferrer"
-            class="inline-flex min-h-[36px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
-            {{ 'contact.github' | translate }}
-          </a>
-          }
-          @if (profile().linkedin) {
-          <a [href]="profile().linkedin" target="_blank" rel="noopener noreferrer"
-            class="inline-flex min-h-[36px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
-            {{ 'contact.linkedin' | translate }}
-          </a>
-          }
-        </div>
-        }
-      </header>
-
-      <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form grid gap-3.5 text-left sm:gap-4" novalidate>
-        <div class="grid gap-3.5 sm:grid-cols-2 sm:gap-4">
-          <label class="flex flex-col gap-1 text-sm">
-            <span class="font-medium text-[var(--color-text)]">
-              {{ 'contact.form.name' | translate }}
-            </span>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form" novalidate>
+      <fieldset class="contact-fieldset">
+        <legend class="contact-legend">{{ 'contact.form.identityLegend' | translate }}</legend>
+        <div class="contact-field-row">
+          <label class="contact-field">
+            <span class="contact-label">{{ 'contact.form.name' | translate }}</span>
             <input type="text" formControlName="name" autocomplete="name"
               [placeholder]="'contact.form.namePlaceholder' | translate"
               [attr.aria-invalid]="fieldHasError('name', 'required') || fieldHasError('name', 'minlength') || null"
-              class="contact-field rounded-xl border border-[var(--color-surface-glass-border)] bg-[var(--color-surface-glass)] px-3.5 py-2 text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-accent)] focus:outline-none sm:text-base" />
+              class="contact-input" />
             @if (fieldHasError('name', 'required')) {
-            <span class="text-xs text-red-500">{{ 'contact.form.errors.nameRequired' | translate }}</span>
+            <span class="contact-error">{{ 'contact.form.errors.nameRequired' | translate }}</span>
             } @else if (fieldHasError('name', 'minlength')) {
-            <span class="text-xs text-red-500">{{ 'contact.form.errors.nameTooShort' | translate }}</span>
+            <span class="contact-error">{{ 'contact.form.errors.nameTooShort' | translate }}</span>
             }
           </label>
 
-          <label class="flex flex-col gap-1 text-sm">
-            <span class="font-medium text-[var(--color-text)]">
-              {{ 'contact.form.email' | translate }}
-            </span>
+          <label class="contact-field">
+            <span class="contact-label">{{ 'contact.form.email' | translate }}</span>
             <input type="email" formControlName="email" autocomplete="email"
               [placeholder]="'contact.form.emailPlaceholder' | translate"
               [attr.aria-invalid]="fieldHasError('email', 'required') || fieldHasError('email', 'email') || null"
-              class="contact-field rounded-xl border border-[var(--color-surface-glass-border)] bg-[var(--color-surface-glass)] px-3.5 py-2 text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-accent)] focus:outline-none sm:text-base" />
+              class="contact-input" />
             @if (fieldHasError('email', 'required')) {
-            <span class="text-xs text-red-500">{{ 'contact.form.errors.emailRequired' | translate }}</span>
+            <span class="contact-error">{{ 'contact.form.errors.emailRequired' | translate }}</span>
             } @else if (fieldHasError('email', 'email')) {
-            <span class="text-xs text-red-500">{{ 'contact.form.errors.emailInvalid' | translate }}</span>
+            <span class="contact-error">{{ 'contact.form.errors.emailInvalid' | translate }}</span>
             }
           </label>
         </div>
+      </fieldset>
 
-        <label class="flex flex-col gap-1 text-sm">
-          <span class="font-medium text-[var(--color-text)]">
-            {{ 'contact.form.subject' | translate }}
-          </span>
+      <fieldset class="contact-fieldset">
+        <legend class="contact-legend">{{ 'contact.form.messageLegend' | translate }}</legend>
+
+        <label class="contact-field">
+          <span class="contact-label">{{ 'contact.form.subject' | translate }}</span>
           <input type="text" formControlName="subject" [placeholder]="'contact.form.subjectPlaceholder' | translate"
-            class="contact-field rounded-xl border border-[var(--color-surface-glass-border)] bg-[var(--color-surface-glass)] px-3.5 py-2 text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-accent)] focus:outline-none sm:text-base" />
+            class="contact-input" />
         </label>
 
-        <label class="flex flex-col gap-1 text-sm">
-          <span class="font-medium text-[var(--color-text)]">
-            {{ 'contact.form.message' | translate }}
-          </span>
-          <textarea formControlName="message" rows="3" [placeholder]="'contact.form.messagePlaceholder' | translate"
+        <label class="contact-field contact-field--message">
+          <span class="contact-label">{{ 'contact.form.message' | translate }}</span>
+          <textarea formControlName="message" rows="4" [placeholder]="'contact.form.messagePlaceholder' | translate"
             [attr.aria-invalid]="fieldHasError('message', 'required') || fieldHasError('message', 'minlength') || null"
-            class="contact-message resize-y rounded-xl border border-[var(--color-surface-glass-border)] bg-[var(--color-surface-glass)] px-3.5 py-2 text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-accent)] focus:outline-none sm:text-base"></textarea>
+            class="contact-input contact-textarea"></textarea>
           @if (fieldHasError('message', 'required')) {
-          <span class="text-xs text-red-500">{{ 'contact.form.errors.messageRequired' | translate }}</span>
+          <span class="contact-error">{{ 'contact.form.errors.messageRequired' | translate }}</span>
           } @else if (fieldHasError('message', 'minlength')) {
-          <span class="text-xs text-red-500">{{ 'contact.form.errors.messageTooShort' | translate }}</span>
+          <span class="contact-error">{{ 'contact.form.errors.messageTooShort' | translate }}</span>
           }
         </label>
+      </fieldset>
 
-        <div class="honeypot" aria-hidden="true">
-          <label>
-            Leave this empty
-            <input type="text" formControlName="hp_field" tabindex="-1" autocomplete="off" />
-          </label>
-        </div>
+      <div class="honeypot" aria-hidden="true">
+        <label>
+          Leave this empty
+          <input type="text" formControlName="hp_field" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
 
-        @if (errored()) {
-        <div class="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-300"
-          role="alert">
-          <p class="font-semibold">{{ 'contact.form.errorTitle' | translate }}</p>
-          <p>{{ errorKey() | translate }}</p>
-        </div>
-        }
+      @if (errored()) {
+      <div class="contact-alert" role="alert">
+        <p class="font-semibold">{{ 'contact.form.errorTitle' | translate }}</p>
+        <p>{{ errorKey() | translate }}</p>
+      </div>
+      }
 
-        <div class="flex flex-col items-stretch sm:items-end">
-          <button type="submit" [disabled]="submitting()"
-            class="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-accent-fg)] shadow-md transition-transform hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:text-base">
-            @if (submitting()) {
-            {{ 'contact.form.submitting' | translate }}
-            } @else {
-            {{ 'contact.form.submit' | translate }}
-            }
-          </button>
-        </div>
-      </form>
-    </div>
+      <div class="contact-actions">
+        <button type="submit" [disabled]="submitting()" class="contact-submit">
+          @if (submitting()) {
+          {{ 'contact.form.submitting' | translate }}
+          } @else {
+          {{ 'contact.form.submit' | translate }}
+          }
+        </button>
+      </div>
+    </form>
     }
   </div>
+
+  @if (profile().github || profile().linkedin) {
+  <div class="contact-social mt-8 flex flex-wrap items-center justify-center gap-3">
+    @if (profile().github) {
+    <a [href]="profile().github" target="_blank" rel="noopener noreferrer"
+      class="inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+      {{ 'contact.github' | translate }}
+    </a>
+    }
+    @if (profile().linkedin) {
+    <a [href]="profile().linkedin" target="_blank" rel="noopener noreferrer"
+      class="inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+      {{ 'contact.linkedin' | translate }}
+    </a>
+    }
+  </div>
+  }
 </section>
