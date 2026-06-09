@@ -13,43 +13,37 @@
 
   <div class="grid gap-5">
     @for (entry of experience(); track entry.id) {
-      <article class="glass group rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-glass-strong)]">
-        <header class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <h3 class="text-lg font-semibold leading-tight text-[var(--color-text)] sm:text-xl">
-              <a
-                [href]="entry.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="transition-colors hover:text-[var(--color-accent)]"
-              >
-                {{ entry.company }}
-              </a>
-            </h3>
-            <p class="mt-1 text-sm font-medium text-[var(--color-accent)]">
-              {{ entry.role }}
-            </p>
-          </div>
-          <p class="text-sm text-[var(--color-text-subtle)] sm:text-right">
-            {{ entry.period }}
+    <article
+      class="glass group rounded-2xl p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-glass-strong)]">
+      <header class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h3 class="text-lg font-semibold leading-tight text-[var(--color-text)] sm:text-xl">
+            <a [href]="entry.url" target="_blank" rel="noopener noreferrer"
+              class="transition-colors hover:text-[var(--color-accent)]">
+              {{ entry.company }}
+            </a>
+          </h3>
+          <p class="mt-1 text-sm font-medium text-[var(--color-accent)]">
+            {{ entry.role }}
           </p>
-        </header>
-
-        <p class="mt-4 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
-          {{ entry.description }}
+        </div>
+        <p class="text-sm text-[var(--color-text-subtle)] sm:text-right">
+          {{ entry.period }}
         </p>
+      </header>
 
-        <footer class="mt-5 border-t border-[var(--color-surface-glass-border)] pt-4">
-          <a
-            [href]="entry.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex min-h-[36px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]"
-          >
-            {{ 'experience.visitWebsite' | translate }}
-          </a>
-        </footer>
-      </article>
+      <p class="mt-4 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+        {{ entry.description }}
+      </p>
+
+      <footer class="mt-5 border-t border-[var(--color-surface-glass-border)] pt-4">
+        <a [href]="entry.url" target="_blank" rel="noopener noreferrer"
+          class="inline-flex min-h-[36px] items-center gap-2 rounded-full border border-[var(--color-surface-glass-border)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          {{ 'experience.visitWebsite' | translate }}
+        </a>
+      </footer>
+    </article>
     }
   </div>
 </section>

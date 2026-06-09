@@ -70,12 +70,14 @@
       <footer class="mt-6 flex flex-wrap items-center gap-2 border-t border-[var(--color-surface-glass-border)] pt-4">
         @if (externalDetailUrl(project); as detailUrl) {
         <a [href]="detailUrl" target="_blank" rel="noopener noreferrer"
-          class="inline-flex min-h-[36px] items-center rounded-full bg-[var(--color-accent)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-accent-fg)] transition-colors hover:bg-[var(--color-accent-hover)]">
+          class="inline-flex min-h-[36px] items-center gap-2 rounded-full bg-[var(--color-accent)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-accent-fg)] transition-colors hover:bg-[var(--color-accent-hover)]">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
           {{ 'projects.viewDetails' | translate }}
         </a>
         } @else {
         <a [routerLink]="['/projects', project.id]"
-          class="inline-flex min-h-[36px] items-center rounded-full bg-[var(--color-accent)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-accent-fg)] transition-colors hover:bg-[var(--color-accent-hover)]">
+          class="inline-flex min-h-[36px] items-center gap-2 rounded-full bg-[var(--color-accent)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-accent-fg)] transition-colors hover:bg-[var(--color-accent-hover)]">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
           {{ 'projects.viewDetails' | translate }}
         </a>
         }
