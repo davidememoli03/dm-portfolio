@@ -68,8 +68,9 @@
 .contact-input {
   width: 100%;
   border-radius: 0.875rem;
-  border: 1px solid var(--color-surface-glass-border);
-  background: var(--color-surface-glass);
+  border: 1px solid var(--color-input-border);
+  background: var(--color-input-bg);
+  box-shadow: var(--shadow-input);
   padding: 0.75rem 1rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -85,13 +86,16 @@
 }
 
 .contact-input:hover {
-  border-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-surface-glass-border));
+  border-color: var(--color-input-border-hover);
+  box-shadow:
+    var(--shadow-input),
+    0 2px 6px rgba(15, 23, 42, 0.06);
 }
 
 .contact-input:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: var(--ring-focus);
+  box-shadow: var(--shadow-input), var(--ring-focus);
 }
 
 .contact-textarea {
