@@ -12,4 +12,16 @@ import { PortfolioProject } from '../../models/portfolio.models';
 })
 export class ProjectsGridComponent {
   readonly projects = input.required<PortfolioProject[]>();
+
+  /** External detail page (e.g. Arcade UI showcase) instead of /projects/:id */
+  protected externalDetailUrl(project: PortfolioProject): string | null {
+    if (project.id === 'arcade-ui' && project.url) {
+      return project.url;
+    }
+    return null;
+  }
+
+  protected showDemo(project: PortfolioProject): boolean {
+    return Boolean(project.url) && project.id !== 'arcade-ui';
+  }
 }
