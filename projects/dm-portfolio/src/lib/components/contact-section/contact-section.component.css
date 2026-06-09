@@ -9,3 +9,30 @@
   opacity: 0;
   pointer-events: none;
 }
+
+.contact-layout {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.contact-message {
+  min-height: 4.5rem;
+  max-height: min(7.5rem, 22vh);
+}
+
+@media (min-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: minmax(0, 12.5rem) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+  }
+
+  .contact-header {
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .contact-message {
+    max-height: min(8rem, 28vh);
+  }
+}
