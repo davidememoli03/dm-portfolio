@@ -25,8 +25,8 @@
         "en": "Arcade UI"
       },
       "description": {
-        "it": "Design system CSS e Angular in stile arcade anni '80: neon, effetti CRT, audio synth e oltre 80 componenti, senza dipendenze runtime.",
-        "en": "80s arcade CSS and Angular design system: neon visuals, CRT effects, synth audio, and 80+ components with zero runtime dependencies."
+        "it": "Kit UI arcade anni '80: neon, CRT, audio synth e 80+ componenti CSS, senza dipendenze runtime.",
+        "en": "80s arcade UI kit: neon, CRT, synth audio, and 80+ CSS components with no runtime dependencies."
       },
       "technologies": [
         "JavaScript",
