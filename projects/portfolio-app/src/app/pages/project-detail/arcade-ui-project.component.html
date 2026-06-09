@@ -1,11 +1,7 @@
-<section #arcadeHost class="arcade-project-shell arc-bg-grid" [class]="theme" [arcadeTheme]="theme" arcadeThemeTarget="host">
+<section #arcadeHost class="arcade-project-shell arc-bg-grid" [class]="theme" [arcadeTheme]="theme"
+  arcadeThemeTarget="host">
   <div class="arcade-layout">
-    <a
-      routerLink="/"
-      fragment="projects"
-      class="arc-btn arc-btn-ghost arc-btn-sm self-start"
-      arcadeSoundClick="select"
-    >
+    <a routerLink="/" fragment="projects" class="arc-btn arc-btn-ghost arc-btn-sm self-start" arcadeSoundClick="select">
       ← {{ 'projectDetail.back' | translate }}
     </a>
 
@@ -13,7 +9,7 @@
       <div class="arc-panel-header">
         <span class="arc-glow-cyan arcade-kicker">
           @if (project().detail?.tagline) {
-            {{ project().detail!.tagline }}
+          {{ project().detail!.tagline }}
           }
         </span>
         <span class="arc-badge arc-badge-cyan" style="margin-left: auto;">v{{ version }}</span>
@@ -28,47 +24,34 @@
         </p>
 
         @if (project().technologies.length) {
-          <div class="arcade-chip-row" style="margin-top: 1rem;">
-            @for (tech of project().technologies; track tech) {
-              <span class="arc-badge arc-badge-outline">{{ tech }}</span>
-            }
-          </div>
+        <div class="arcade-chip-row" style="margin-top: 1rem;">
+          @for (tech of project().technologies; track tech) {
+          <span class="arc-badge arc-badge-outline">{{ tech }}</span>
+          }
+        </div>
         }
       </div>
 
       <div class="arc-panel-footer">
         @if (project().url) {
-          <a
-            [href]="project().url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="arc-btn arc-btn-primary"
-            arcadeSoundClick="select"
-          >
-            STORYBOOK
-          </a>
+        <a [href]="project().url" target="_blank" rel="noopener noreferrer" class="arc-btn arc-btn-primary"
+          arcadeSoundClick="select">
+          STORYBOOK
+        </a>
         }
         @if (project().npmUrl) {
-          <a
-            [href]="project().npmUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="arc-btn arc-btn-ghost"
-            arcadeSoundClick="coin"
-          >
-            NPM
-          </a>
+        <a [href]="project().npmUrl" target="_blank" rel="noopener noreferrer" class="arc-btn arc-btn-ghost"
+          arcadeSoundClick="coin">
+          <i class="fa-brands fa-npm" aria-hidden="true"></i>
+          NPM
+        </a>
         }
         @if (project().repoUrl) {
-          <a
-            [href]="project().repoUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="arc-btn arc-btn-ghost"
-            arcadeSoundClick="blip"
-          >
-            GITHUB
-          </a>
+        <a [href]="project().repoUrl" target="_blank" rel="noopener noreferrer" class="arc-btn arc-btn-ghost"
+          arcadeSoundClick="blip">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          GITHUB
+        </a>
         }
       </div>
     </div>
@@ -172,128 +155,104 @@
     <section class="arc-panel arc-panel-cyan" aria-label="Project details">
       <div class="arc-tabs arc-tabs-cyan" style="border: none; box-shadow: none; background: transparent;">
         <div class="arcade-tab-bar arc-tab-list" role="tablist">
-        <button
-          type="button"
-          class="arc-tab"
-          role="tab"
-          [class.arc-tab-active]="isTab('overview')"
-          [attr.aria-selected]="isTab('overview')"
-          (click)="setTab('overview')"
-          arcadeSoundClick="select"
-        >
-          OVERVIEW
-        </button>
-        <button
-          type="button"
-          class="arc-tab"
-          role="tab"
-          [class.arc-tab-active]="isTab('components')"
-          [attr.aria-selected]="isTab('components')"
-          (click)="setTab('components')"
-          arcadeSoundClick="select"
-        >
-          COMPONENTS
-        </button>
-        <button
-          type="button"
-          class="arc-tab"
-          role="tab"
-          [attr.aria-selected]="isTab('install')"
-          [class.arc-tab-active]="isTab('install')"
-          (click)="setTab('install')"
-          arcadeSoundClick="select"
-        >
-          INSTALL
-        </button>
+          <button type="button" class="arc-tab" role="tab" [class.arc-tab-active]="isTab('overview')"
+            [attr.aria-selected]="isTab('overview')" (click)="setTab('overview')" arcadeSoundClick="select">
+            OVERVIEW
+          </button>
+          <button type="button" class="arc-tab" role="tab" [class.arc-tab-active]="isTab('components')"
+            [attr.aria-selected]="isTab('components')" (click)="setTab('components')" arcadeSoundClick="select">
+            COMPONENTS
+          </button>
+          <button type="button" class="arc-tab" role="tab" [attr.aria-selected]="isTab('install')"
+            [class.arc-tab-active]="isTab('install')" (click)="setTab('install')" arcadeSoundClick="select">
+            INSTALL
+          </button>
         </div>
       </div>
 
       @if (isTab('overview')) {
-        <div class="arcade-tab-panel" role="tabpanel">
-          @if (project().detail?.highlights?.length) {
-            <div class="arcade-gallery">
-              @for (item of project().detail!.highlights; track item.title) {
-                <article class="arc-card arc-card-cyan">
-                  <div class="arc-card-header">
-                    <h3 class="arc-card-title">{{ item.title }}</h3>
-                  </div>
-                  <div class="arc-card-body">
-                    <p class="arcade-body-copy">{{ item.body }}</p>
-                  </div>
-                </article>
-              }
+      <div class="arcade-tab-panel" role="tabpanel">
+        @if (project().detail?.highlights?.length) {
+        <div class="arcade-gallery">
+          @for (item of project().detail!.highlights; track item.title) {
+          <article class="arc-card arc-card-cyan">
+            <div class="arc-card-header">
+              <h3 class="arc-card-title">{{ item.title }}</h3>
             </div>
-          }
-
-          @if (project().detail?.sections?.length) {
-            @for (section of project().detail!.sections; track section.title) {
-              <article class="arc-panel arc-panel-glass" style="margin-top: 1rem;">
-                <div class="arc-panel-header">
-                  <span class="arcade-kicker">{{ section.title }}</span>
-                </div>
-                <div class="arc-panel-body">
-                  <p class="arcade-body-copy">{{ section.body }}</p>
-                </div>
-              </article>
-            }
+            <div class="arc-card-body">
+              <p class="arcade-body-copy">{{ item.body }}</p>
+            </div>
+          </article>
           }
         </div>
+        }
+
+        @if (project().detail?.sections?.length) {
+        @for (section of project().detail!.sections; track section.title) {
+        <article class="arc-panel arc-panel-glass" style="margin-top: 1rem;">
+          <div class="arc-panel-header">
+            <span class="arcade-kicker">{{ section.title }}</span>
+          </div>
+          <div class="arc-panel-body">
+            <p class="arcade-body-copy">{{ section.body }}</p>
+          </div>
+        </article>
+        }
+        }
+      </div>
       }
 
       @if (isTab('components')) {
-        <div class="arcade-tab-panel" role="tabpanel">
-          <div class="arc-table-wrapper">
-            <table class="arc-table arc-table-cyan">
-              <thead>
-                <tr>
-                  <th class="arc-table-th">Component</th>
-                  <th class="arc-table-th">Variants</th>
-                </tr>
-              </thead>
-              <tbody>
-                @for (row of components; track row.name) {
-                  <tr class="arc-table-row">
-                    <td class="arc-table-td">{{ row.name }}</td>
-                    <td class="arc-table-td">{{ row.variant }}</td>
-                  </tr>
-                }
-              </tbody>
-            </table>
-          </div>
+      <div class="arcade-tab-panel" role="tabpanel">
+        <div class="arc-table-wrapper">
+          <table class="arc-table arc-table-cyan">
+            <thead>
+              <tr>
+                <th class="arc-table-th">Component</th>
+                <th class="arc-table-th">Variants</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of components; track row.name) {
+              <tr class="arc-table-row">
+                <td class="arc-table-td">{{ row.name }}</td>
+                <td class="arc-table-td">{{ row.variant }}</td>
+              </tr>
+              }
+            </tbody>
+          </table>
         </div>
+      </div>
       }
 
       @if (isTab('install')) {
-        <div class="arcade-tab-panel" role="tabpanel">
-          <div class="arc-input-wrapper" style="margin-bottom: 1rem;">
-            <label class="arc-label">NPM</label>
-            <code class="arc-input arcade-install-code">npm install @davide03memoli/arcade-ui@{{ version }}</code>
-          </div>
-          <div class="arc-input-wrapper" style="margin-bottom: 1rem;">
-            <label class="arc-label">ANGULAR</label>
-            <code class="arc-input arcade-install-code">import &#123; arcadeUiAngularImports &#125; from '@davide03memoli/arcade-ui/angular'</code>
-          </div>
-          <div class="arc-input-wrapper">
-            <label class="arc-label">THEME</label>
-            <code class="arc-input arcade-install-code">@import '@davide03memoli/arcade-ui/themes/ice-blue';</code>
-          </div>
-          <p class="arcade-body-copy" style="margin-top: 1rem;">
-            {{ 'arcadeUi.installHint' | translate }}
-          </p>
-          @if (project().npmUrl) {
-            <div style="margin-top: 1rem;">
-              <a
-                [href]="project().npmUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="arc-btn arc-btn-primary"
-                arcadeSoundClick="win"
-              >
-                OPEN NPM
-              </a>
-            </div>
-          }
+      <div class="arcade-tab-panel" role="tabpanel">
+        <div class="arc-input-wrapper" style="margin-bottom: 1rem;">
+          <label class="arc-label">NPM</label>
+          <code class="arc-input arcade-install-code">npm install @davide03memoli/arcade-ui@{{ version }}</code>
         </div>
+        <div class="arc-input-wrapper" style="margin-bottom: 1rem;">
+          <label class="arc-label">ANGULAR</label>
+          <code
+            class="arc-input arcade-install-code">import &#123; arcadeUiAngularImports &#125; from '@davide03memoli/arcade-ui/angular'</code>
+        </div>
+        <div class="arc-input-wrapper">
+          <label class="arc-label">THEME</label>
+          <code class="arc-input arcade-install-code">@import '@davide03memoli/arcade-ui/themes/ice-blue';</code>
+        </div>
+        <p class="arcade-body-copy" style="margin-top: 1rem;">
+          {{ 'arcadeUi.installHint' | translate }}
+        </p>
+        @if (project().npmUrl) {
+        <div style="margin-top: 1rem;">
+          <a [href]="project().npmUrl" target="_blank" rel="noopener noreferrer" class="arc-btn arc-btn-primary"
+            arcadeSoundClick="win">
+            <i class="fa-brands fa-npm" aria-hidden="true"></i>
+            OPEN NPM
+          </a>
+        </div>
+        }
+      </div>
       }
     </section>
   </div>

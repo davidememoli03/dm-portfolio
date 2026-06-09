@@ -101,6 +101,9 @@ app-arcade-ui-project .arcade-install-code {
 }
 
 app-arcade-ui-project .arcade-project-shell :is(a.arc-btn, button.arc-btn) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
 }
 

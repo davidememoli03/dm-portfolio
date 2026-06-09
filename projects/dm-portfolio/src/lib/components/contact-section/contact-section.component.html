@@ -118,13 +118,15 @@
   <div class="contact-social mt-8 flex flex-wrap items-center justify-center gap-3">
     @if (profile().github) {
     <a [href]="profile().github" target="_blank" rel="noopener noreferrer"
-      class="inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+      class="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+      <i class="fa-brands fa-github" aria-hidden="true"></i>
       {{ 'contact.github' | translate }}
     </a>
     }
     @if (profile().linkedin) {
     <a [href]="profile().linkedin" target="_blank" rel="noopener noreferrer"
-      class="inline-flex min-h-[40px] items-center rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+      class="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-[var(--color-surface-glass-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-soft)]">
+      <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
       {{ 'contact.linkedin' | translate }}
     </a>
     }
