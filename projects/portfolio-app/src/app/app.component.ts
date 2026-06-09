@@ -5,6 +5,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { PortfolioApiService } from 'dm-portfolio';
 
 import { AnalyticsService } from './analytics/analytics.service';
+import { BackHomeButtonComponent } from './back-home-button/back-home-button.component';
 import { LocaleSwitcherComponent } from './locale-switcher/locale-switcher.component';
 import { ThemeToggleComponent } from './theme/theme-toggle.component';
 import { ThemeService } from './theme/theme.service';
@@ -15,6 +16,7 @@ import { getStoredLanguage } from './i18n/locales';
   imports: [
     RouterOutlet,
     TranslateModule,
+    BackHomeButtonComponent,
     LocaleSwitcherComponent,
     ThemeToggleComponent,
   ],
