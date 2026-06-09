@@ -1,4 +1,5 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -36,6 +37,14 @@ export class ContactSectionComponent {
   readonly submitting = computed(() => this.status() === 'submitting');
   readonly succeeded = computed(() => this.status() === 'success');
   readonly errored = computed(() => this.status() === 'error');
+
+  readonly identityLegend = toSignal(this.translate.stream('contact.form.identityLegend'), {
+    initialValue: this.translate.instant('contact.form.identityLegend'),
+  });
+
+  readonly messageLegend = toSignal(this.translate.stream('contact.form.messageLegend'), {
+    initialValue: this.translate.instant('contact.form.messageLegend'),
+  });
 
   submit(): void {
     if (this.submitting()) {

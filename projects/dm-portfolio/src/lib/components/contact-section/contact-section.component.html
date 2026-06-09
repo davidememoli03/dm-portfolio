@@ -34,8 +34,8 @@
     </div>
     } @else {
     <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form" novalidate>
-      <fieldset class="contact-fieldset">
-        <legend class="contact-legend">{{ 'contact.form.identityLegend' | translate }}</legend>
+      <fieldset class="contact-fieldset" [attr.aria-labelledby]="'contact-identity-legend'">
+        <h3 id="contact-identity-legend" class="contact-legend">{{ identityLegend() }}</h3>
         <div class="contact-field-row">
           <label class="contact-field">
             <span class="contact-label">{{ 'contact.form.name' | translate }}</span>
@@ -65,8 +65,8 @@
         </div>
       </fieldset>
 
-      <fieldset class="contact-fieldset">
-        <legend class="contact-legend">{{ 'contact.form.messageLegend' | translate }}</legend>
+      <fieldset class="contact-fieldset" [attr.aria-labelledby]="'contact-message-legend'">
+        <h3 id="contact-message-legend" class="contact-legend">{{ messageLegend() }}</h3>
 
         <label class="contact-field">
           <span class="contact-label">{{ 'contact.form.subject' | translate }}</span>
