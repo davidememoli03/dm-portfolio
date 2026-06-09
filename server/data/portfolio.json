@@ -28,9 +28,14 @@
         "it": "Design system CSS e Angular in stile arcade anni '80: neon, effetti CRT, audio synth e oltre 80 componenti, senza dipendenze runtime.",
         "en": "80s arcade CSS and Angular design system: neon visuals, CRT effects, synth audio, and 80+ components with zero runtime dependencies."
       },
-      "technologies": ["TypeScript", "CSS", "Web Audio", "Angular"],
+      "technologies": [
+        "TypeScript",
+        "CSS",
+        "Web Audio",
+        "Angular"
+      ],
       "npmUrl": "https://www.npmjs.com/package/@davide03memoli/arcade-ui",
-      "url": "https://davidememoli03.github.io/Arcade-UI/",
+      "url": "https://arcade.dev-memoli.it/",
       "repoUrl": "https://github.com/davidememoli03/Arcade-UI",
       "detail": {
         "tagline": {
@@ -39,21 +44,30 @@
         },
         "highlights": [
           {
-            "title": { "it": "80+ componenti", "en": "80+ components" },
+            "title": {
+              "it": "80+ componenti",
+              "en": "80+ components"
+            },
             "body": {
               "it": "Button, panel, card, tabs, modal, table, toast e utility per glitch, CRT e glow.",
               "en": "Buttons, panels, cards, tabs, modals, tables, toasts, plus glitch, CRT, and glow utilities."
             }
           },
           {
-            "title": { "it": "Audio integrato", "en": "Built-in audio" },
+            "title": {
+              "it": "Audio integrato",
+              "en": "Built-in audio"
+            },
             "body": {
               "it": "AudioManager con effetti synth via Web Audio API, senza asset audio obbligatori.",
               "en": "AudioManager with synth effects via the Web Audio API, no required audio assets."
             }
           },
           {
-            "title": { "it": "Vanilla, React, Angular", "en": "Vanilla, React, Angular" },
+            "title": {
+              "it": "Vanilla, React, Angular",
+              "en": "Vanilla, React, Angular"
+            },
             "body": {
               "it": "Usabile con HTML puro o con wrapper React e directive Angular standalone.",
               "en": "Works with plain HTML or React wrappers and standalone Angular directives."
@@ -62,7 +76,10 @@
         ],
         "sections": [
           {
-            "title": { "it": "Perché l'ho creato", "en": "Why I built it" },
+            "title": {
+              "it": "Perché l'ho creato",
+              "en": "Why I built it"
+            },
             "body": {
               "it": "Volevo un kit UI arcade completo ma leggero: facile da integrare, coerente visivamente e divertente da usare, senza framework obbligatori né bundle pesanti.",
               "en": "I wanted a complete yet lightweight arcade UI kit: easy to integrate, visually consistent, and fun to use, with no mandatory framework or heavy bundles."
@@ -81,7 +98,14 @@
         "it": "Il monorepo di questo sito: libreria Angular condivisa, app portfolio, pannello admin, API Express e stack Docker.",
         "en": "The monorepo behind this site: shared Angular library, portfolio app, admin panel, Express API, and Docker stack."
       },
-      "technologies": ["Angular", "Tailwind CSS", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
+      "technologies": [
+        "Angular",
+        "Tailwind CSS",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Docker"
+      ],
       "repoUrl": "https://github.com/davidememoli03/dm-portfolio",
       "detail": {
         "tagline": {
@@ -90,21 +114,30 @@
         },
         "highlights": [
           {
-            "title": { "it": "Libreria riutilizzabile", "en": "Reusable library" },
+            "title": {
+              "it": "Libreria riutilizzabile",
+              "en": "Reusable library"
+            },
             "body": {
               "it": "Hero, griglia progetti, form contatti e client API esportati dal package dm-portfolio.",
               "en": "Hero, project grid, contact form, and API client exported from the dm-portfolio package."
             }
           },
           {
-            "title": { "it": "UI glass e i18n", "en": "Glass UI and i18n" },
+            "title": {
+              "it": "UI glass e i18n",
+              "en": "Glass UI and i18n"
+            },
             "body": {
               "it": "Design token condivisi, tema chiaro/scuro, animazioni scroll reveal e contenuti in italiano e inglese.",
               "en": "Shared design tokens, light/dark theme, scroll reveal animations, and Italian and English content."
             }
           },
           {
-            "title": { "it": "Backend e admin", "en": "Backend and admin" },
+            "title": {
+              "it": "Backend e admin",
+              "en": "Backend and admin"
+            },
             "body": {
               "it": "Form contatti con rate limit, login JWT, gestione messaggi, analytics visite e compose Docker per dev e produzione.",
               "en": "Contact form with rate limiting, JWT login, message management, visit analytics, and Docker compose for dev and production."
@@ -113,7 +146,10 @@
         ],
         "sections": [
           {
-            "title": { "it": "Architettura", "en": "Architecture" },
+            "title": {
+              "it": "Architettura",
+              "en": "Architecture"
+            },
             "body": {
               "it": "Il frontend pubblico e l'admin consumano la stessa API Express su Postgres. La libreria Angular incapsula componenti e servizi così portfolio e altri progetti possono condividere la stessa base UI.",
               "en": "The public frontend and admin both consume the same Express API on Postgres. The Angular library encapsulates components and services so the portfolio and other projects can share the same UI foundation."
@@ -187,7 +223,10 @@
         "it": "DevOps e infrastruttura",
         "en": "DevOps & infrastructure"
       },
-      "items": ["Docker", "Nginx"]
+      "items": [
+        "Docker",
+        "Nginx"
+      ]
     },
     {
       "id": "game-dev",
@@ -195,7 +234,11 @@
         "it": "Produzione videogiochi",
         "en": "Game development"
       },
-      "items": ["Unity", "Unreal Engine", "Autodesk Maya"]
+      "items": [
+        "Unity",
+        "Unreal Engine",
+        "Autodesk Maya"
+      ]
     },
     {
       "id": "ai",
