@@ -217,17 +217,6 @@
       ]
     },
     {
-      "id": "databases",
-      "title": {
-        "it": "Database",
-        "en": "Databases"
-      },
-      "items": [
-        "MySQL",
-        "PostgreSQL"
-      ]
-    },
-    {
       "id": "devops",
       "title": {
         "it": "DevOps e infrastruttura",
@@ -235,7 +224,9 @@
       },
       "items": [
         "Docker",
-        "Nginx"
+        "Nginx",
+        "MySQL",
+        "PostgreSQL"
       ]
     },
     {
