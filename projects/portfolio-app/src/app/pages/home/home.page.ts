@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 
+import { portfolioMedia } from '../../media/media.paths';
 import {
   ContactSectionComponent,
   ExperienceSectionComponent,
@@ -38,7 +39,7 @@ import {
         <p class="font-medium text-[var(--color-text)]">{{ error() }}</p>
       </div>
     } @else if (profile()) {
-      <dm-hero-section [profile]="profile()!" />
+      <dm-hero-section [profile]="profile()!" [photoUrl]="profilePhoto" />
       <dm-experience-section [experience]="experience()" />
       <dm-skills-section [skills]="skills()" />
       <dm-projects-grid [projects]="projects()" />
@@ -49,6 +50,8 @@ import {
 export class HomePage implements OnInit {
   private readonly portfolioApi = inject(PortfolioApiService);
   private readonly translate = inject(TranslateService);
+
+  readonly profilePhoto = portfolioMedia.foto.profile;
 
   readonly profile = signal<PortfolioProfile | null>(null);
   readonly experience = signal<PortfolioExperience[]>([]);

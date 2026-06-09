@@ -1,14 +1,25 @@
 <section class="relative py-20 sm:py-28 lg:py-32" dmScrollReveal [dmScrollRevealImmediate]="true">
   <div class="mx-auto max-w-3xl text-center">
+    @if (photoUrl(); as src) {
+    <div class="mb-8 flex justify-center">
+      <div
+        class="glass relative h-36 w-36 overflow-hidden rounded-full p-1 shadow-[var(--shadow-glass-strong)] sm:h-40 sm:w-40">
+        <img [src]="src" [alt]="profile().name" width="160" height="160"
+          class="h-full w-full rounded-full object-cover object-top" fetchpriority="high" decoding="async" />
+      </div>
+    </div>
+    }
+
     <div class="mb-6 flex flex-wrap items-center justify-center gap-2">
-      <span class="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
+      <span
+        class="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
         <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
         {{ 'hero.badge' | translate }}
       </span>
       @if (profile().location) {
-        <span class="glass inline-flex items-center rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
-          {{ profile().location }}
-        </span>
+      <span class="glass inline-flex items-center rounded-full px-3 py-1 text-eyebrow text-[var(--color-text-muted)]">
+        {{ profile().location }}
+      </span>
       }
     </div>
 
@@ -25,16 +36,12 @@
     </p>
 
     <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-      <a
-        href="#contact"
-        class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-accent-fg)] shadow-md transition-transform hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5"
-      >
+      <a href="#contact"
+        class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-accent-fg)] shadow-md transition-transform hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5">
         {{ 'hero.contact' | translate }}
       </a>
-      <a
-        href="#projects"
-        class="glass inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-transform hover:-translate-y-0.5"
-      >
+      <a href="#projects"
+        class="glass inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-transform hover:-translate-y-0.5">
         {{ 'hero.viewProjects' | translate }}
       </a>
     </div>

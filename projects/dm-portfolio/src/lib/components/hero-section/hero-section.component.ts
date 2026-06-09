@@ -11,4 +11,5 @@ import { PortfolioProfile } from '../../models/portfolio.models';
 })
 export class HeroSectionComponent {
   readonly profile = input.required<PortfolioProfile>();
+  readonly photoUrl = input<string>();
 }
