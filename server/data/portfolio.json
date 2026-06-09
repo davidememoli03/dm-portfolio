@@ -217,6 +217,17 @@
       ]
     },
     {
+      "id": "databases",
+      "title": {
+        "it": "Database",
+        "en": "Databases"
+      },
+      "items": [
+        "MySQL",
+        "PostgreSQL"
+      ]
+    },
+    {
       "id": "devops",
       "title": {
         "it": "DevOps e infrastruttura",
