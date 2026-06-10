@@ -3,6 +3,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 
 import { portfolioMedia } from '../../media/media.paths';
+import { SeoService } from '../../seo/seo.service';
+import { SeoLocale } from '../../seo/seo.config';
 import {
   ContactSectionComponent,
   ExperienceSectionComponent,
@@ -50,6 +52,7 @@ import {
 export class HomePage implements OnInit {
   private readonly portfolioApi = inject(PortfolioApiService);
   private readonly translate = inject(TranslateService);
+  private readonly seo = inject(SeoService);
 
   readonly profilePhoto = portfolioMedia.foto.profile;
 
@@ -61,8 +64,22 @@ export class HomePage implements OnInit {
   readonly error = signal<string | null>(null);
 
   ngOnInit(): void {
-    this.translate.onLangChange.subscribe(() => this.loadPortfolio());
+    this.seo.applyHome(this.currentLocale());
+    this.translate.onLangChange.subscribe(({ lang }) => {
+      this.seo.applyHome(this.toSeoLocale(lang));
+      this.loadPortfolio();
+    });
     this.loadPortfolio();
+  }
+
+  private currentLocale(): SeoLocale {
+    return this.toSeoLocale(
+      this.translate.getCurrentLang() || this.translate.getFallbackLang() || 'it',
+    );
+  }
+
+  private toSeoLocale(lang: string | null | undefined): SeoLocale {
+    return lang?.split('-')[0] === 'en' ? 'en' : 'it';
   }
 
   private loadPortfolio(): void {

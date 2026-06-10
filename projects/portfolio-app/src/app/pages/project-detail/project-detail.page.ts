@@ -4,6 +4,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { PortfolioApiService, PortfolioProject, ProjectDetailComponent } from 'dm-portfolio';
 
+import { SeoService } from '../../seo/seo.service';
+import { SeoLocale } from '../../seo/seo.config';
 import { ArcadeUiProjectComponent } from './arcade-ui-project.component';
 
 @Component({
@@ -44,15 +46,17 @@ export class ProjectDetailPage implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly portfolioApi = inject(PortfolioApiService);
   private readonly translate = inject(TranslateService);
+  private readonly seo = inject(SeoService);
 
   readonly loading = signal(true);
   readonly notFound = signal(false);
   readonly project = signal<PortfolioProject | null>(null);
 
   ngOnInit(): void {
-    this.translate.onLangChange.subscribe(() => {
+    this.translate.onLangChange.subscribe(({ lang }) => {
       const id = this.route.snapshot.paramMap.get('id');
       if (id) {
+        this.applySeoForCurrent(id, this.toSeoLocale(lang));
         this.fetchProject(id);
       }
     });
@@ -60,10 +64,12 @@ export class ProjectDetailPage implements OnInit {
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
+        this.applySeoForCurrent(id, this.currentLocale());
         this.fetchProject(id);
       } else {
         this.notFound.set(true);
         this.loading.set(false);
+        this.seo.applyProjectNotFound(this.currentLocale());
       }
     });
   }
@@ -76,12 +82,43 @@ export class ProjectDetailPage implements OnInit {
       next: (project) => {
         this.project.set(project);
         this.loading.set(false);
+        this.applySeoFromProject(project);
       },
       error: () => {
         this.project.set(null);
         this.notFound.set(true);
         this.loading.set(false);
+        this.seo.applyProjectNotFound(this.currentLocale());
       },
     });
+  }
+
+  private applySeoForCurrent(id: string, locale: SeoLocale): void {
+    this.seo.applyProject(id, locale);
+  }
+
+  private applySeoFromProject(project: PortfolioProject): void {
+    const locale = this.currentLocale();
+    const description = project.detail?.tagline || project.description;
+    this.seo.applyProject(project.id, locale, {
+      title: {
+        it: `${project.title} · Davide Memoli`,
+        en: `${project.title} · Davide Memoli`,
+      },
+      description: {
+        it: description,
+        en: description,
+      },
+    });
+  }
+
+  private currentLocale(): SeoLocale {
+    return this.toSeoLocale(
+      this.translate.getCurrentLang() || this.translate.getFallbackLang() || 'it',
+    );
+  }
+
+  private toSeoLocale(lang: string | null | undefined): SeoLocale {
+    return lang?.split('-')[0] === 'en' ? 'en' : 'it';
   }
 }
