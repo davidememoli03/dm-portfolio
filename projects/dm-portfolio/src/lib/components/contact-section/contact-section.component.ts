@@ -7,12 +7,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { PortfolioProfile } from '../../models/portfolio.models';
 import { PortfolioApiService } from '../../services/portfolio-api.service';
+import { IconComponent } from '../icon/icon.component';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 @Component({
   selector: 'dm-contact-section',
-  imports: [ReactiveFormsModule, TranslateModule, ScrollRevealDirective],
+  imports: [ReactiveFormsModule, TranslateModule, ScrollRevealDirective, IconComponent],
   templateUrl: './contact-section.component.html',
   styleUrl: './contact-section.component.css',
 })

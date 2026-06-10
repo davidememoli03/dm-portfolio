@@ -1,6 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { forkJoin } from 'rxjs';
 
 import { portfolioMedia } from '../../media/media.paths';
 import { SeoService } from '../../seo/seo.service';
@@ -30,11 +29,15 @@ import {
   ],
   template: `
     @if (loading()) {
-      <div class="glass mx-auto my-24 max-w-md rounded-2xl p-8 text-center" role="status" aria-live="polite">
-        <div class="mx-auto mb-4 h-2 w-24 overflow-hidden rounded-full bg-[var(--color-accent-soft)]">
-          <span class="block h-full w-1/3 animate-pulse rounded-full bg-[var(--color-accent)]"></span>
+      <!-- Reserve roughly the above-the-fold height so the swap to real content
+           does not trigger a large layout shift (CLS). -->
+      <div class="flex min-h-[80vh] items-center justify-center" role="status" aria-live="polite">
+        <div class="glass mx-auto max-w-md rounded-2xl p-8 text-center">
+          <div class="mx-auto mb-4 h-2 w-24 overflow-hidden rounded-full bg-[var(--color-accent-soft)]">
+            <span class="block h-full w-1/3 animate-pulse rounded-full bg-[var(--color-accent)]"></span>
+          </div>
+          <p class="text-[var(--color-text-muted)]">{{ 'app.loading' | translate }}</p>
         </div>
-        <p class="text-[var(--color-text-muted)]">{{ 'app.loading' | translate }}</p>
       </div>
     } @else if (error()) {
       <div class="glass mx-auto my-24 max-w-md rounded-2xl p-8 text-center" role="alert">
@@ -86,12 +89,7 @@ export class HomePage implements OnInit {
     this.loading.set(true);
     this.error.set(null);
 
-    forkJoin({
-      profile: this.portfolioApi.getProfile(),
-      experience: this.portfolioApi.getExperience(),
-      skills: this.portfolioApi.getSkills(),
-      projects: this.portfolioApi.getProjects(),
-    }).subscribe({
+    this.portfolioApi.getPortfolio().subscribe({
       next: ({ profile, experience, skills, projects }) => {
         this.profile.set(profile);
         this.experience.set(experience);

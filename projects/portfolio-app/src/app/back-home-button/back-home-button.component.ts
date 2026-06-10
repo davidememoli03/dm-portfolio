@@ -10,13 +10,14 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { IconComponent } from 'dm-portfolio';
 import { filter } from 'rxjs';
 
 const SCROLL_THRESHOLD_PX = 240;
 
 @Component({
   selector: 'app-back-home-button',
-  imports: [RouterLink, TranslateModule],
+  imports: [RouterLink, TranslateModule, IconComponent],
   template: `
     @if (visible()) {
       <div class="glass inline-flex items-center rounded-full p-1">
@@ -26,7 +27,7 @@ const SCROLL_THRESHOLD_PX = 240;
           [attr.aria-label]="'nav.backHome' | translate"
           (click)="handleClick($event)"
         >
-          <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+          <dm-icon name="arrow-up" [size]="16" />
         </a>
       </div>
     }

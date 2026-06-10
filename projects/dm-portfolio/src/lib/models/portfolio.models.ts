@@ -49,3 +49,10 @@ export interface PortfolioSkillGroup {
   title: string;
   items: string[];
 }
+
+export interface PortfolioBundle {
+  profile: PortfolioProfile;
+  experience: PortfolioExperience[];
+  skills: PortfolioSkillGroup[];
+  projects: PortfolioProject[];
+}

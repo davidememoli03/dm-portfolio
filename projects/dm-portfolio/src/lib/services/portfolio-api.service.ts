@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ContactMessageInput, ContactMessageResponse } from '../models/contact.models';
-import { PortfolioProfile, PortfolioProject, PortfolioExperience, PortfolioSkillGroup } from '../models/portfolio.models';
+import { PortfolioBundle, PortfolioProfile, PortfolioProject, PortfolioExperience, PortfolioSkillGroup } from '../models/portfolio.models';
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioApiService {
@@ -17,6 +17,12 @@ export class PortfolioApiService {
 
   configureLocale(locale: string): void {
     this.locale = locale.split('-')[0] || 'it';
+  }
+
+  getPortfolio(): Observable<PortfolioBundle> {
+    return this.http.get<PortfolioBundle>(`${this.apiBaseUrl}/portfolio`, {
+      params: this.localeParams(),
+    });
   }
 
   getProfile(): Observable<PortfolioProfile> {

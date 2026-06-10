@@ -42,14 +42,14 @@
         @if (project().npmUrl) {
         <a [href]="project().npmUrl" target="_blank" rel="noopener noreferrer" class="arc-btn arc-btn-ghost"
           arcadeSoundClick="coin">
-          <i class="fa-brands fa-npm" aria-hidden="true"></i>
+          <dm-icon name="npm" [size]="14" />
           NPM
         </a>
         }
         @if (project().repoUrl) {
         <a [href]="project().repoUrl" target="_blank" rel="noopener noreferrer" class="arc-btn arc-btn-ghost"
           arcadeSoundClick="blip">
-          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <dm-icon name="github" [size]="14" />
           GITHUB
         </a>
         }
@@ -247,7 +247,7 @@
         <div style="margin-top: 1rem;">
           <a [href]="project().npmUrl" target="_blank" rel="noopener noreferrer" class="arc-btn arc-btn-primary"
             arcadeSoundClick="win">
-            <i class="fa-brands fa-npm" aria-hidden="true"></i>
+            <dm-icon name="npm" [size]="14" />
             OPEN NPM
           </a>
         </div>

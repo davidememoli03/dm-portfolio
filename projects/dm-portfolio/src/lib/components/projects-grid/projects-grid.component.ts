@@ -4,10 +4,11 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { PortfolioProject } from '../../models/portfolio.models';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'dm-projects-grid',
-  imports: [RouterLink, TranslateModule, ScrollRevealDirective],
+  imports: [RouterLink, TranslateModule, ScrollRevealDirective, IconComponent],
   templateUrl: './projects-grid.component.html',
 })
 export class ProjectsGridComponent {

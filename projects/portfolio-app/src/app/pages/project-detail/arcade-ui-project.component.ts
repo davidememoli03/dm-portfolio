@@ -14,6 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import {
   arcadeUiAngularImports,
   bindGlitch,
+  IconComponent,
   PortfolioProject,
   version as arcadeUiVersion,
 } from 'dm-portfolio';
@@ -35,7 +36,7 @@ const ARCADE_COMPONENTS = [
 
 @Component({
   selector: 'app-arcade-ui-project',
-  imports: [RouterLink, TranslateModule, ...arcadeUiAngularImports],
+  imports: [RouterLink, TranslateModule, IconComponent, ...arcadeUiAngularImports],
   providers: [ArcadeUiStylesService],
   templateUrl: './arcade-ui-project.component.html',
   styleUrl: './arcade-ui-project.component.css',

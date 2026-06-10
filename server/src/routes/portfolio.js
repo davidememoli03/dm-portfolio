@@ -111,6 +111,20 @@ portfolioRouter.get('/skills', (req, res) => {
   res.json(skills.map((group) => localizeSkillGroup(group, locale)));
 });
 
+// Aggregated payload for the home page: one request instead of four serial
+// round trips, which removes a chunk of the LCP critical path.
+portfolioRouter.get('/portfolio', (req, res) => {
+  const locale = resolveLocale(req);
+  const { profile, projects = [], experience = [], skills = [] } = loadPortfolioData();
+
+  res.json({
+    profile: localizeProfile(profile, locale),
+    experience: experience.map((entry) => localizeExperience(entry, locale)),
+    skills: skills.map((group) => localizeSkillGroup(group, locale)),
+    projects: projects.map((project) => localizeProject(project, locale)),
+  });
+});
+
 portfolioRouter.get('/projects/:id', (req, res) => {
   const locale = resolveLocale(req);
   const { projects } = loadPortfolioData();
