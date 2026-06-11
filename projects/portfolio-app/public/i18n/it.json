@@ -67,6 +67,12 @@
   "nav": {
     "backHome": "Torna alla home"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Pagina non trovata",
+    "description": "La pagina che stai cercando non esiste o e' stata spostata.",
+    "backHome": "Torna alla home"
+  },
   "app": {
     "loading": "Caricamento del portfolio...",
     "error": {

@@ -43,6 +43,17 @@ export const HOME_SEO: SeoPageContent = {
   },
 };
 
+export const NOT_FOUND_SEO: SeoPageContent = {
+  title: {
+    it: 'Pagina non trovata · Davide Memoli',
+    en: 'Page not found · Davide Memoli',
+  },
+  description: {
+    it: 'La pagina richiesta non esiste. Torna alla home del portfolio di Davide Memoli.',
+    en: 'The requested page does not exist. Return to Davide Memoli\'s portfolio home.',
+  },
+};
+
 export const PROJECT_NOT_FOUND_SEO: SeoPageContent = {
   title: {
     it: 'Progetto non trovato · Davide Memoli',
