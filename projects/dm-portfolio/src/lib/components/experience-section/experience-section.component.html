@@ -29,9 +29,11 @@
         </p>
       </header>
 
-      <p class="mt-4 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
-        {{ entry.description }}
-      </p>
+      <div class="mt-4 space-y-3 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+        @for (paragraph of entry.description; track $index) {
+        <p>{{ paragraph }}</p>
+        }
+      </div>
 
       <footer class="mt-5 border-t border-[var(--color-surface-glass-border)] pt-4">
         <a [href]="entry.url" target="_blank" rel="noopener noreferrer"

@@ -166,16 +166,26 @@
         "en": "IT Values"
       },
       "role": {
-        "it": "Full Stack Developer",
-        "en": "Full Stack Developer"
+        "it": "Sviluppatore Web Junior",
+        "en": "Junior Web Developer"
       },
       "period": {
-        "it": "2023 · in corso",
-        "en": "2023 · present"
+        "it": "Nov 2023 · in corso",
+        "en": "Nov 2023 · present"
       },
       "description": {
-        "it": "Sviluppo end-to-end di soluzioni su misura per clienti enterprise e pubblica amministrazione: applicazioni web e API, integrazione tra sistemi eterogenei, servizi cloud e messa in produzione. Seguo l'intero ciclo di vita del software, con attenzione ad architettura, manutenibilità e requisiti di sicurezza del progetto.",
-        "en": "End-to-end development of tailored solutions for enterprise and public sector clients: web applications and APIs, integration across heterogeneous systems, cloud services, and production delivery. I cover the full software lifecycle, with a focus on architecture, maintainability, and each project's security requirements."
+        "it": [
+          "Sviluppo e progetto applicazioni web end-to-end per clienti enterprise e pubblica amministrazione.",
+          "Sul frontend realizzo interfacce moderne e responsive con Angular, Bootstrap e Bootstrap Italia, traducendo i prototipi Figma in esperienze fluide, accessibili e performanti.",
+          "Sul backend lavoro con Laravel per la logica applicativa e la gestione dei database, e con Python (Flask e Django) per soluzioni server-side — anche con integrazioni di intelligenza artificiale per flussi conversazionali automatizzati.",
+          "Progetto architetture mantenibili e scalabili, uso Docker per ambienti di sviluppo e produzione coerenti, e collaboro con designer, project manager e sviluppatori senior per allineare requisiti funzionali e implementazione."
+        ],
+        "en": [
+          "I design and build end-to-end web applications for enterprise and public sector clients.",
+          "On the frontend I deliver modern, responsive interfaces with Angular, Bootstrap and Bootstrap Italia, turning Figma prototypes into smooth, accessible and performant user experiences.",
+          "On the backend I work with Laravel for application logic and database management, and with Python (Flask and Django) for server-side solutions — including AI integrations for automated conversational flows.",
+          "I focus on maintainable, scalable architectures, use Docker for consistent development and production environments, and collaborate closely with designers, project managers and senior developers to align functional requirements with implementation."
+        ]
       },
       "url": "https://itvalues.it/"
     },
@@ -186,16 +196,24 @@
         "en": "IWS Consulting"
       },
       "role": {
-        "it": "Full Stack Developer",
-        "en": "Full Stack Developer"
+        "it": "Stagista Sviluppatore Web Junior",
+        "en": "Junior Web Developer Intern"
       },
       "period": {
-        "it": "2023",
-        "en": "2023"
+        "it": "Mag–Nov 2023",
+        "en": "May–Nov 2023"
       },
       "description": {
-        "it": "Sviluppo di applicazioni web, consolidando le competenze full stack in un contesto di consulenza IT.",
-        "en": "Web application development, building full-stack skills in an IT consulting environment."
+        "it": [
+          "Stage di sei mesi focalizzato sul consolidamento delle competenze full stack in contesto di consulenza IT.",
+          "Ho sviluppato componenti UI interattivi con Angular, gestendo lo stato dell'applicazione e ottimizzando le interfacce per esperienze fluide e reattive; sul backend ho progettato la logica con Laravel ed Eloquent ORM, implementando funzionalità per soluzioni robuste.",
+          "Ho completato un corso Laravel con certificazione Udemy, a conferma dell'impegno verso formazione continua e best practice di sviluppo."
+        ],
+        "en": [
+          "A six-month internship focused on strengthening full-stack skills in an IT consulting environment.",
+          "I built interactive UI components with Angular, managing application state and optimising interfaces for fluid, responsive experiences; on the backend I designed logic with Laravel and Eloquent ORM, implementing features for robust solutions.",
+          "I also completed a certified Udemy Laravel course, reflecting my commitment to continuous learning and development best practices."
+        ]
       },
       "url": "https://iwsconsulting.it/"
     }

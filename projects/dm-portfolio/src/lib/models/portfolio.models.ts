@@ -40,7 +40,7 @@ export interface PortfolioExperience {
   company: string;
   role: string;
   period: string;
-  description: string;
+  description: string[];
   url: string;
 }
 
