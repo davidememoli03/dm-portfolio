@@ -293,6 +293,16 @@
               "it": "Da almeno 3 giocatori: l'host sceglie numero di impostori e categoria, poi ogni giocatore invia indizi a turni mentre gli impostori bluffano. Nella votazione tutti indicano il sospetto: se viene scoperto un impostore, questo ha pochi secondi per indovinare la parola e vincere comunque.",
               "en": "With at least 3 players: the host picks the number of impostors and a category, then each player submits clues in turns while impostors bluff. During voting everyone points at the suspect: if an impostor is caught, they get a few seconds to guess the word and still win."
             }
+          },
+          {
+            "title": {
+              "it": "Realizzato con ProjectsBuilder",
+              "en": "Built with ProjectsBuilder"
+            },
+            "body": {
+              "it": "ImpostorWord è stato generato con ProjectsBuilder: la base full stack (Angular, admin, API Express, PostgreSQL, Docker e CI) era già pronta e configurata, facendo risparmiare moltissimo tempo. Così ho potuto concentrarmi subito sulla logica di gioco real-time invece che sul setup dell'infrastruttura.",
+              "en": "ImpostorWord was scaffolded with ProjectsBuilder: the full-stack foundation (Angular, admin, Express API, PostgreSQL, Docker and CI) was already in place and configured, saving a huge amount of time. That let me focus right away on the real-time game logic instead of infrastructure setup."
+            }
           }
         ]
       }
