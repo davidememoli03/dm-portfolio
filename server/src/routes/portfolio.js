@@ -58,13 +58,23 @@ function localizeProjectDetail(project, locale) {
   };
 }
 
+function localizeExperienceParagraphs(description, locale) {
+  const localized = pickLocalized(description, locale);
+
+  if (Array.isArray(localized)) {
+    return localized;
+  }
+
+  return localized ? [localized] : [];
+}
+
 function localizeExperience(entry, locale) {
   return {
     id: entry.id,
     company: pickLocalized(entry.company, locale),
     role: pickLocalized(entry.role, locale),
     period: pickLocalized(entry.period, locale),
-    description: pickLocalized(entry.description, locale),
+    description: localizeExperienceParagraphs(entry.description, locale),
     url: entry.url,
   };
 }

@@ -4,6 +4,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 import {
   HOME_SEO,
+  NOT_FOUND_SEO,
   PROJECTS_SEO,
   PROJECT_NOT_FOUND_SEO,
   SEO_DEFAULTS,
@@ -47,6 +48,13 @@ export class SeoService {
     this.apply(snapshot);
     this.setJsonLd(JSON_LD_PAGE_ID, this.buildProjectJsonLd(snapshot, projectId));
     this.setJsonLd(JSON_LD_BREADCRUMB_ID, this.buildBreadcrumbJsonLd(snapshot, locale));
+  }
+
+  applyNotFound(locale: SeoLocale, path = '/'): void {
+    const snapshot = this.buildSnapshot(NOT_FOUND_SEO, locale, path, 'website', true);
+    this.apply(snapshot);
+    this.removeJsonLd(JSON_LD_PAGE_ID);
+    this.removeJsonLd(JSON_LD_BREADCRUMB_ID);
   }
 
   applyProjectNotFound(locale: SeoLocale): void {
