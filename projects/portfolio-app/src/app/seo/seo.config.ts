@@ -83,6 +83,20 @@ export const PROJECTS_SEO: Record<string, SeoPageContent> = {
       en: 'DM Portfolio, Angular monorepo, Angular library, Express, PostgreSQL, Docker, Tailwind CSS, open source portfolio, Davide Memoli',
     },
   },
+  'projects-builder': {
+    title: {
+      it: 'ProjectsBuilder · Scaffolding full stack Angular + Express + Docker · Davide Memoli',
+      en: 'ProjectsBuilder · Full-stack scaffolding Angular + Express + Docker · Davide Memoli',
+    },
+    description: {
+      it: 'ProjectsBuilder: CLI che genera un progetto full stack (Angular, Express, PostgreSQL, Docker e CI) da un template, replicando l\'architettura di dm-portfolio.',
+      en: 'ProjectsBuilder: a CLI that scaffolds a full-stack project (Angular, Express, PostgreSQL, Docker and CI) from a template, mirroring the dm-portfolio architecture.',
+    },
+    keywords: {
+      it: 'ProjectsBuilder, scaffolding progetto, CLI, template full stack, Angular, Express, PostgreSQL, Docker, CI/CD, Bash, Davide Memoli',
+      en: 'ProjectsBuilder, project scaffolding, CLI, full-stack template, Angular, Express, PostgreSQL, Docker, CI/CD, Bash, Davide Memoli',
+    },
+  },
 };
 
 export const SITEMAP_PROJECT_IDS = Object.keys(PROJECTS_SEO);

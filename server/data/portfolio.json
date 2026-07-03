@@ -156,6 +156,75 @@
           }
         ]
       }
+    },
+    {
+      "id": "projects-builder",
+      "title": {
+        "it": "ProjectsBuilder",
+        "en": "ProjectsBuilder"
+      },
+      "description": {
+        "it": "CLI che genera un nuovo progetto full stack (Angular + Express + Postgres + Docker + CI) da un template, replicando l'architettura di dm-portfolio.",
+        "en": "CLI that scaffolds a new full-stack project (Angular + Express + Postgres + Docker + CI) from a template, mirroring the dm-portfolio architecture."
+      },
+      "technologies": [
+        "Bash",
+        "Angular",
+        "Node.js",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "repoUrl": "https://github.com/davidememoli03/ProjectsBuilder",
+      "detail": {
+        "tagline": {
+          "it": "Un comando per avere un progetto full stack pronto: frontend, admin, API, database e Docker già configurati.",
+          "en": "One command to bootstrap a full-stack project: frontend, admin, API, database, and Docker ready to go."
+        },
+        "highlights": [
+          {
+            "title": {
+              "it": "Scaffolding in un comando",
+              "en": "One-command scaffolding"
+            },
+            "body": {
+              "it": "create-project.sh copia il template, genera lo slug kebab-case, inizializza git e opzionalmente installa le dipendenze.",
+              "en": "create-project.sh copies the template, derives a kebab-case slug, initializes git, and optionally installs dependencies."
+            }
+          },
+          {
+            "title": {
+              "it": "Token dinamici",
+              "en": "Dynamic tokens"
+            },
+            "body": {
+              "it": "Segnaposto come nome progetto, database, anno e autore vengono sostituiti in tutti i file per una base pronta all'uso.",
+              "en": "Placeholders for project name, database, year, and author are replaced across all files for a ready-to-use base."
+            }
+          },
+          {
+            "title": {
+              "it": "Stack completo incluso",
+              "en": "Full stack included"
+            },
+            "body": {
+              "it": "Il template porta frontend Angular, pannello admin, API Express, migrazioni Postgres, Dockerfile per dev e produzione e workflow CI/CD.",
+              "en": "The template ships an Angular frontend, admin panel, Express API, Postgres migrations, dev and production Dockerfiles, and CI/CD workflows."
+            }
+          }
+        ],
+        "sections": [
+          {
+            "title": {
+              "it": "Perché l'ho creato",
+              "en": "Why I built it"
+            },
+            "body": {
+              "it": "Ricreare da zero la stessa base full stack a ogni nuovo progetto è ripetitivo e soggetto a errori. ProjectsBuilder estrae l'architettura collaudata di dm-portfolio in un template riutilizzabile, così ogni nuovo progetto parte già con struttura, tooling e deploy coerenti.",
+              "en": "Rebuilding the same full-stack foundation from scratch for every new project is repetitive and error-prone. ProjectsBuilder extracts the proven dm-portfolio architecture into a reusable template, so each new project starts with consistent structure, tooling, and deployment."
+            }
+          }
+        ]
+      }
     }
   ],
   "experience": [
