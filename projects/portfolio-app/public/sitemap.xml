@@ -47,4 +47,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dev-memoli.it/projects/projects-builder"/>
   </url>
 
+  <url>
+    <loc>https://dev-memoli.it/projects/impostorword</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://dev-memoli.it/projects/impostorword"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dev-memoli.it/projects/impostorword"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dev-memoli.it/projects/impostorword"/>
+  </url>
+
 </urlset>

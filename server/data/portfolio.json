@@ -225,6 +225,77 @@
           }
         ]
       }
+    },
+    {
+      "id": "impostorword",
+      "title": {
+        "it": "ImpostorWord",
+        "en": "ImpostorWord"
+      },
+      "description": {
+        "it": "Videogioco multiplayer web in tempo reale: gli impostori non conoscono la parola segreta e devono bluffare, la crew dà indizi e poi tutti votano il sospetto.",
+        "en": "Real-time multiplayer web game: impostors don't know the secret word and must bluff, the crew gives clues, then everyone votes for the suspect."
+      },
+      "technologies": [
+        "Angular",
+        "Socket.IO",
+        "Node.js",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "Docker"
+      ],
+      "url": "https://impostorword.dev-memoli.it/",
+      "repoUrl": "https://github.com/davidememoli03/ImpostorWord",
+      "detail": {
+        "tagline": {
+          "it": "Crea o entra in una stanza con un codice, gioca in tempo reale: indizi a turni, votazione e ribaltone finale dell'impostore.",
+          "en": "Create or join a room with a code and play in real time: turn-based clues, voting, and a final impostor comeback."
+        },
+        "highlights": [
+          {
+            "title": {
+              "it": "Multiplayer real-time",
+              "en": "Real-time multiplayer"
+            },
+            "body": {
+              "it": "Stanze con codice, lobby e stato di gioco sincronizzato via Socket.IO, con vista personalizzata inviata a ogni giocatore.",
+              "en": "Code-based rooms, lobby, and game state synced over Socket.IO, with a personalized view sent to each player."
+            }
+          },
+          {
+            "title": {
+              "it": "Meccanica a fasi",
+              "en": "Phase-based mechanic"
+            },
+            "body": {
+              "it": "Fase indizi a turni, fase votazione e possibilità per l'impostore scoperto di indovinare la parola e ribaltare la partita.",
+              "en": "Turn-based clue phase, voting phase, and a chance for a caught impostor to guess the word and flip the game."
+            }
+          },
+          {
+            "title": {
+              "it": "Stack full stack e Docker",
+              "en": "Full-stack and Docker"
+            },
+            "body": {
+              "it": "Client Angular, pannello admin per il dizionario, API Express con auth JWT su Postgres, tutto containerizzato con deploy CI su VPS.",
+              "en": "Angular client, admin panel for the dictionary, Express API with JWT auth on Postgres, all containerized with CI deploy to a VPS."
+            }
+          }
+        ],
+        "sections": [
+          {
+            "title": {
+              "it": "Come si gioca",
+              "en": "How to play"
+            },
+            "body": {
+              "it": "Da almeno 3 giocatori: l'host sceglie numero di impostori e categoria, poi ogni giocatore invia indizi a turni mentre gli impostori bluffano. Nella votazione tutti indicano il sospetto: se viene scoperto un impostore, questo ha pochi secondi per indovinare la parola e vincere comunque.",
+              "en": "With at least 3 players: the host picks the number of impostors and a category, then each player submits clues in turns while impostors bluff. During voting everyone points at the suspect: if an impostor is caught, they get a few seconds to guess the word and still win."
+            }
+          }
+        ]
+      }
     }
   ],
   "experience": [

@@ -108,6 +108,20 @@ export const PROJECTS_SEO: Record<string, SeoPageContent> = {
       en: 'ProjectsBuilder, project scaffolding, CLI, full-stack template, Angular, Express, PostgreSQL, Docker, CI/CD, Bash, Davide Memoli',
     },
   },
+  'impostorword': {
+    title: {
+      it: 'ImpostorWord · Gioco multiplayer web real-time Angular + Socket.IO · Davide Memoli',
+      en: 'ImpostorWord · Real-time multiplayer web game Angular + Socket.IO · Davide Memoli',
+    },
+    description: {
+      it: 'ImpostorWord: videogioco multiplayer web in tempo reale con Angular, Socket.IO, Express e PostgreSQL. Gli impostori bluffano, la crew dà indizi e tutti votano il sospetto.',
+      en: 'ImpostorWord: real-time multiplayer web game with Angular, Socket.IO, Express and PostgreSQL. Impostors bluff, the crew gives clues, and everyone votes for the suspect.',
+    },
+    keywords: {
+      it: 'ImpostorWord, gioco multiplayer web, real-time, Socket.IO, Angular, Express, PostgreSQL, Docker, party game, Davide Memoli',
+      en: 'ImpostorWord, multiplayer web game, real-time, Socket.IO, Angular, Express, PostgreSQL, Docker, party game, Davide Memoli',
+    },
+  },
 };
 
 export const SITEMAP_PROJECT_IDS = Object.keys(PROJECTS_SEO);
